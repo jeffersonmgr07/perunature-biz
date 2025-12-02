@@ -42,7 +42,7 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 100;
       background: rgba(41, 69, 31, 0.97);
       backdrop-filter: blur(6px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -55,20 +55,19 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: relative;
     }
 
     .nav-logo {
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      color: var(--text-main);
     }
 
     .nav-logo img {
       height: 38px;
     }
 
+    /* Menú desktop */
     .nav-links {
       display: flex;
       gap: 1.25rem;
@@ -79,6 +78,7 @@
     .nav-links a {
       position: relative;
       padding-bottom: 0.25rem;
+      font-weight: 500;
     }
 
     .nav-links a::after {
@@ -97,7 +97,7 @@
       width: 100%;
     }
 
-    /* MENÚ MÓVIL */
+    /* Menú móvil - hamburguesa */
     .mobile-menu-btn {
       display: none;
       background: none;
@@ -106,56 +106,40 @@
       font-size: 1.5rem;
       cursor: pointer;
       padding: 0.5rem;
-      z-index: 1001;
     }
 
     .mobile-menu {
       display: none;
       position: fixed;
-      top: 0;
+      top: 60px;
       left: 0;
-      width: 100%;
-      height: 100%;
+      right: 0;
       background: rgba(41, 69, 31, 0.98);
       backdrop-filter: blur(10px);
-      z-index: 999;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
+      z-index: 99;
+      padding: 1rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
 
     .mobile-menu.active {
-      display: flex;
+      display: block;
     }
 
     .mobile-menu a {
+      display: block;
       color: white;
-      font-size: 1.5rem;
-      margin: 1rem 0;
-      padding: 0.5rem 1rem;
-      text-align: center;
-      width: 100%;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      font-size: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      transition: background 0.3s;
+    }
+
+    .mobile-menu a:hover {
+      background: rgba(255,255,255,0.1);
     }
 
     .mobile-menu a:last-child {
       border-bottom: none;
-    }
-
-    .mobile-menu a:hover {
-      color: var(--green-light);
-    }
-
-    .close-menu {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 2rem;
-      cursor: pointer;
     }
 
     main {
@@ -344,7 +328,7 @@
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
       .nav-links {
         display: none;
       }
@@ -353,6 +337,12 @@
         display: block;
       }
       
+      .nav-logo span {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
       .card {
         padding: 1.5rem;
       }
@@ -365,10 +355,10 @@
     <div class="nav-container">
       <div class="nav-logo">
         <img src="img/Logoperunature1.png" alt="Perú Nature Logo" />
-        <span style="font-weight:600; font-size:0.95rem;">Perú Nature</span>
+        <!-- Texto eliminado según solicitud -->
       </div>
       
-      <!-- Menú de escritorio -->
+      <!-- Menú desktop (visible en pantallas grandes) -->
       <nav class="nav-links">
         <a href="inicio.html">Inicio</a>
         <a href="finanzas.html">Plan financiero</a>
@@ -376,21 +366,18 @@
         <a href="cronogramas.html">Cronogramas</a>
       </nav>
       
-      <!-- Botón de menú móvil -->
+      <!-- Botón menú móvil (solo visible en pantallas pequeñas) -->
       <button class="mobile-menu-btn" id="mobileMenuBtn">
         <i class="fas fa-bars"></i>
       </button>
     </div>
     
-    <!-- Menú móvil -->
+    <!-- Menú móvil desplegable -->
     <div class="mobile-menu" id="mobileMenu">
-      <button class="close-menu" id="closeMenuBtn">
-        <i class="fas fa-times"></i>
-      </button>
-      <a href="inicio.html" onclick="closeMobileMenu()">Inicio</a>
-      <a href="finanzas.html" onclick="closeMobileMenu()">Plan financiero</a>
-      <a href="servicios.html" onclick="closeMobileMenu()">Estructura de servicios</a>
-      <a href="cronogramas.html" onclick="closeMobileMenu()">Cronogramas</a>
+      <a href="inicio.html">Inicio</a>
+      <a href="finanzas.html">Plan financiero</a>
+      <a href="servicios.html">Estructura de servicios</a>
+      <a href="cronogramas.html">Cronogramas</a>
     </div>
   </header>
 
@@ -762,35 +749,42 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Funcionalidad del menú móvil
+    
+    // Menú móvil
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const closeMenuBtn = document.getElementById('closeMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     
-    function openMobileMenu() {
-      mobileMenu.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    
-    function closeMobileMenu() {
-      mobileMenu.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    
-    mobileMenuBtn.addEventListener('click', openMobileMenu);
-    closeMenuBtn.addEventListener('click', closeMobileMenu);
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      // Cambiar ícono
+      const icon = mobileMenuBtn.querySelector('i');
+      if (mobileMenu.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
     
     // Cerrar menú al hacer clic en un enlace
     const mobileLinks = mobileMenu.querySelectorAll('a');
     mobileLinks.forEach(link => {
-      link.addEventListener('click', closeMobileMenu);
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      });
     });
     
     // Cerrar menú al hacer clic fuera
-    mobileMenu.addEventListener('click', function(e) {
-      if (e.target === mobileMenu) {
-        closeMobileMenu();
+    document.addEventListener('click', (event) => {
+      if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+        mobileMenu.classList.remove('active');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
       }
     });
   </script>
