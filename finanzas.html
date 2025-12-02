@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perú Nature – Plan Financiero Realista</title>
+  <title>Perú Nature – Plan Financiero Completo</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -279,15 +279,6 @@
       font-weight: 600;
     }
 
-    .chart-placeholder {
-      margin-top: 1.2rem;
-      padding: 1.3rem;
-      border-radius: 16px;
-      border: 1px dashed rgba(0,0,0,0.2);
-      font-size: 0.85rem;
-      background: #fafaf3;
-    }
-
     .grid-2, .grid-3, .grid-4 {
       display: grid;
       gap: 1.6rem;
@@ -491,69 +482,6 @@
       margin-bottom: 0.3rem;
     }
 
-    .comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-
-    .comparison-table th {
-      background: rgba(63,107,39,0.1);
-      text-align: center;
-      padding: 0.5rem;
-      font-size: 0.8rem;
-    }
-
-    .comparison-table td {
-      padding: 0.5rem;
-      text-align: center;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-      font-size: 0.8rem;
-    }
-
-    .comparison-table tr:last-child td {
-      border-bottom: none;
-      font-weight: 700;
-      background: rgba(63,107,39,0.05);
-    }
-
-    .monthly-chart {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 0.5rem;
-      margin-top: 1rem;
-      height: 120px;
-      align-items: end;
-    }
-
-    .month-bar {
-      background: linear-gradient(to top, var(--green-mid), var(--green-light));
-      border-radius: 4px 4px 0 0;
-      position: relative;
-      min-height: 10px;
-    }
-
-    .month-bar:hover::after {
-      content: attr(data-value);
-      position: absolute;
-      top: -25px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--text-dark);
-      color: white;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.7rem;
-      white-space: nowrap;
-    }
-
-    .month-label {
-      text-align: center;
-      font-size: 0.7rem;
-      margin-top: 0.5rem;
-      color: #666;
-    }
-
     footer {
       text-align: center;
       font-size: 0.8rem;
@@ -572,11 +500,6 @@
       .plan-card.premium {
         transform: none;
       }
-      
-      .monthly-chart {
-        grid-template-columns: repeat(6, 1fr);
-        gap: 0.3rem;
-      }
     }
 
     @media (max-width: 640px) {
@@ -587,10 +510,6 @@
       .plan-badge {
         display: none;
       }
-      
-      .monthly-chart {
-        grid-template-columns: repeat(4, 1fr);
-      }
     }
   </style>
 </head>
@@ -599,14 +518,16 @@
 <header>
   <div class="nav-container">
     <div class="nav-logo">
-      <img src="Logoperunature1.png" alt="Perú Nature Logo" />
+      <img src="Logo%20Horizontal%20Blanco.png" alt="Perú Nature Logo" />
       <span style="font-weight:600; font-size:0.9rem;">Perú Nature</span>
     </div>
     <nav class="nav-links">
       <a href="index.html">Inicio</a>
-      <a href="#plan-financiero">Plan financiero</a>
-      <a href="#estructura-servicios">Estructura de servicios</a>
-      <a href="#cronogramas">Cronogramas</a>
+      <a href="#gastos">Gastos</a>
+      <a href="#utilidades">Utilidades</a>
+      <a href="#flujo">Flujo de caja</a>
+      <a href="#resumen">Resumen</a>
+      <a href="#planes">Planes de inversión</a>
     </nav>
   </div>
 </header>
@@ -617,29 +538,28 @@
       <div class="hero-badge">
         <span>Finanzas 2026</span> Proyección realista con garantías
       </div>
-      <h1>Inversión inteligente con retorno superior</h1>
+      <h1>Plan Financiero Completo y Transparente</h1>
       <p class="hero-subtitle">
-        Ofrecemos una alternativa de inversión que supera significativamente
-        las opciones tradicionales, con garantías contractuales y exposición
-        a altos retornos si el negocio cumple sus proyecciones.
+        Presentamos todas las cifras detalladas: gastos operativos, utilidades por canal,
+        flujo de caja mensual y opciones de inversión con retorno superior al banco.
       </p>
       <p class="hero-subtitle">
-        Mientras un banco ofrece 37% de retorno en 3 años por $7,500,
-        nosotros ofrecemos 100-150% con mucho menor riesgo sistémico.
+        Inversión requerida: $7,500. Retorno garantizado: 50% en 3 años. Retorno proyectado: 55-100%.
       </p>
     </div>
     <aside class="hero-side-card">
-      <h2>Ventajas vs Banco</h2>
+      <h2>Resumen financiero clave</h2>
       <ul>
-        <li><strong>Banco:</strong> $7,500 → $10,300 en 3 años (37%)</li>
-        <li><strong>Nosotros (garantizado):</strong> $7,500 → $11,250 (50%)</li>
-        <li><strong>Nosotros (proyectado):</strong> $7,500 → $15,000-$18,750 (100-150%)</li>
-        <li><strong>Garantía año 1:</strong> 50% del capital recuperado</li>
-        <li><strong>Garantía año 2:</strong> 100% del capital recuperado</li>
+        <li><strong>Inversión requerida:</strong> $7,500</li>
+        <li><strong>Gastos anuales totales:</strong> $26,660</li>
+        <li><strong>Utilidad bruta anual:</strong> $33,600</li>
+        <li><strong>Utilidad neta anual:</strong> $6,940</li>
+        <li><strong>Garantía año 1:</strong> 50% capital recuperado</li>
+        <li><strong>Garantía año 2:</strong> 100% capital recuperado</li>
       </ul>
       <p style="margin-top:0.7rem;">
-        <strong>Diferencial clave:</strong> 2-4 veces mejor retorno que un banco,
-        con garantías contractuales de recuperación.
+        <strong>Comparativa:</strong> Banco ofrece 37% retorno en 3 años.<br>
+        Nosotros ofrecemos 50% garantizado + 55-100% proyectado.
       </p>
     </aside>
   </div>
@@ -647,164 +567,156 @@
 
 <main id="plan-financiero">
 
-  <!-- RESUMEN EJECUTIVO -->
-  <section id="resumen">
-    <div class="section-label">Análisis Comparativo</div>
-    <h2 class="section-title">¿Por qué invertir con Perú Nature vs un Banco?</h2>
-
-    <div class="grid-4" style="margin-bottom: 2rem;">
-      <div class="card">
-        <h3>Retorno en 3 años</h3>
-        <div style="text-align: center; padding: 1rem;">
-          <div style="font-size: 2rem; font-weight: 700; color: var(--bank);">37%</div>
-          <p style="font-size: 0.9rem;">Banco tradicional</p>
-          <div style="font-size: 2rem; font-weight: 700; color: var(--guarantee); margin-top: 1rem;">50%</div>
-          <p style="font-size: 0.9rem;">Nosotros (garantizado)</p>
-          <div style="font-size: 2rem; font-weight: 700; color: var(--green-mid); margin-top: 1rem;">100-150%</div>
-          <p style="font-size: 0.9rem;">Nosotros (proyectado)</p>
-        </div>
-      </div>
-      
-      <div class="card">
-        <h3>Garantías</h3>
-        <div style="padding: 1rem;">
-          <div class="plan-feature">
-            <span class="check">✓</span>
-            <span><strong>Banco:</strong> Garantía estatal (hasta cierto monto)</span>
-          </div>
-          <div class="plan-feature">
-            <span class="check">✓</span>
-            <span><strong>Nosotros:</strong> Carta compromiso legal año 1: 50%</span>
-          </div>
-          <div class="plan-feature">
-            <span class="check">✓</span>
-            <span><strong>Nosotros:</strong> Carta compromiso legal año 2: 100%</span>
-          </div>
-          <div class="plan-feature">
-            <span class="check">✓</span>
-            <span><strong>Nosotros:</strong> + Participación 25% utilidades reales</span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="card">
-        <h3>Flexibilidad</h3>
-        <div style="padding: 1rem;">
-          <div class="plan-feature">
-            <span class="check">✓</span>
-            <span><strong>Banco:</strong> Pagos fijos mensuales</span>
-          </div>
-          <div class="plan-feature">
-            <span class="check">✓</span>
-            <span><strong>Banco:</strong> Penalidades por pago anticipado</span>
-          </div>
-          <div class="plan-feature">
-            <span class="check">✓</span>
-            <span><strong>Nosotros:</strong> Pagos anuales según desempeño</span>
-          </div>
-          <div class="plan-feature">
-            <span class="check">✓</span>
-            <span><strong>Nosotros:</strong> Sin penalidades, opción salida anticipada</span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="card">
-        <h3>Relación Riesgo/Retorno</h3>
-        <div style="padding: 1rem;">
-          <div class="plan-feature">
-            <span class="check">✓</span>
-            <span><strong>Banco:</strong> Riesgo muy bajo, retorno muy bajo</span>
-          </div>
-          <div class="plan-feature">
-            <span class="check">✓</span>
-            <span><strong>Bolsa:</strong> Riesgo alto, retorno variable</span>
-          </div>
-          <div class="plan-feature">
-            <span class="check">✓</span>
-            <span><strong>Nosotros:</strong> Riesgo medio-bajo, retorno alto</span>
-          </div>
-          <div class="plan-feature">
-            <span class="check">✓</span>
-            <span><strong>Ventaja:</strong> Garantías + exposición a alto potencial</span>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- TABLA DE GASTOS -->
+  <section id="gastos">
+    <div class="section-label">Bloque 1</div>
+    <h2 class="section-title">Tabla de gastos mensuales – Año 2026 (USD)</h2>
+    <p class="section-intro">
+      Estructura de costos operativos mensuales. Incluye gastos fijos, variables,
+      y costos de constitución y registro de marca.
+    </p>
 
     <div class="card">
-      <h3>Proyección de Utilidades Actualizada 2026</h3>
-      <p>Distribución mensual basada en estacionalidad turística del Perú:</p>
-      
-      <div class="monthly-chart">
-        <div>
-          <div class="month-bar" style="height: 0%;" data-value="$0"></div>
-          <div class="month-label">Ene</div>
-        </div>
-        <div>
-          <div class="month-bar" style="height: 9%;" data-value="$450"></div>
-          <div class="month-label">Feb</div>
-        </div>
-        <div>
-          <div class="month-bar" style="height: 22%;" data-value="$1,100"></div>
-          <div class="month-label">Mar</div>
-        </div>
-        <div>
-          <div class="month-bar" style="height: 64%;" data-value="$3,200"></div>
-          <div class="month-label">Abr</div>
-        </div>
-        <div>
-          <div class="month-bar" style="height: 82%;" data-value="$4,100"></div>
-          <div class="month-label">May</div>
-        </div>
-        <div>
-          <div class="month-bar" style="height: 96%;" data-value="$4,800"></div>
-          <div class="month-label">Jun</div>
-        </div>
-        <div>
-          <div class="month-bar" style="height: 100%;" data-value="$5,000"></div>
-          <div class="month-label">Jul</div>
-        </div>
-        <div>
-          <div class="month-bar" style="height: 100%;" data-value="$5,000"></div>
-          <div class="month-label">Ago</div>
-        </div>
-        <div>
-          <div class="month-bar" style="height: 90%;" data-value="$4,500"></div>
-          <div class="month-label">Sep</div>
-        </div>
-        <div>
-          <div class="month-bar" style="height: 80%;" data-value="$4,000"></div>
-          <div class="month-label">Oct</div>
-        </div>
-        <div>
-          <div class="month-bar" style="height: 60%;" data-value="$3,000"></div>
-          <div class="month-label">Nov</div>
-        </div>
-        <div>
-          <div class="month-bar" style="height: 49%;" data-value="$2,450"></div>
-          <div class="month-label">Dic</div>
-        </div>
+      <h3>Detalle de gastos operativos mensuales</h3>
+      <p>
+        Mantenemos una estructura ligera con oficinas compartidas y servicios tercerizados
+        estratégicamente para maximizar eficiencia.
+      </p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Gasto / Mes</th>
+              <th>Ene</th><th>Feb</th><th>Mar</th><th>Abr</th><th>May</th><th>Jun</th>
+              <th>Jul</th><th>Ago</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dic</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Oficina Cusco</td>
+              <td>$100</td><td>$100</td><td>$100</td><td>$100</td><td>$100</td><td>$100</td>
+              <td>$100</td><td>$100</td><td>$100</td><td>$100</td><td>$100</td><td>$100</td>
+            </tr>
+            <tr>
+              <td>Oficina Miraflores</td>
+              <td>$0</td><td>$0</td><td>$100</td><td>$100</td><td>$100</td><td>$100</td>
+              <td>$100</td><td>$100</td><td>$100</td><td>$100</td><td>$100</td><td>$100</td>
+            </tr>
+            <tr>
+              <td>Transfer Cusco</td>
+              <td>$0</td><td>$0</td><td>$250</td><td>$250</td><td>$250</td><td>$250</td>
+              <td>$250</td><td>$250</td><td>$250</td><td>$250</td><td>$250</td><td>$250</td>
+            </tr>
+            <tr>
+              <td>Contador</td>
+              <td>$120</td><td>$120</td><td>$120</td><td>$120</td><td>$120</td><td>$120</td>
+              <td>$120</td><td>$120</td><td>$120</td><td>$120</td><td>$120</td><td>$120</td>
+            </tr>
+            <tr>
+              <td>TikToker</td>
+              <td>$0</td><td>$450</td><td>$450</td><td>$450</td><td>$450</td><td>$450</td>
+              <td>$450</td><td>$450</td><td>$450</td><td>$450</td><td>$450</td><td>$450</td>
+            </tr>
+            <tr>
+              <td>Publicidad redes</td>
+              <td>$300</td><td>$300</td><td>$300</td><td>$300</td><td>$300</td><td>$300</td>
+              <td>$300</td><td>$300</td><td>$300</td><td>$300</td><td>$300</td><td>$300</td>
+            </tr>
+            <tr>
+              <td>Viaje a Cusco + viáticos</td>
+              <td>$300</td><td>$0</td><td>$300</td><td>$0</td><td>$0</td><td>$300</td>
+              <td>$0</td><td>$0</td><td>$300</td><td>$0</td><td>$0</td><td>$300</td>
+            </tr>
+            <tr>
+              <td>Uniformes (gorros y casacas)</td>
+              <td>$90</td><td>$90</td><td>$90</td><td>$90</td><td>$90</td><td>$90</td>
+              <td>$90</td><td>$90</td><td>$90</td><td>$90</td><td>$90</td><td>$90</td>
+            </tr>
+            <tr>
+              <td>Productor audiovisual</td>
+              <td>$350</td><td>$350</td><td>$350</td><td>$350</td><td>$350</td><td>$350</td>
+              <td>$350</td><td>$350</td><td>$350</td><td>$350</td><td>$350</td><td>$350</td>
+            </tr>
+            <tr>
+              <td>Web + Hosting</td>
+              <td>$50</td><td>$50</td><td>$50</td><td>$50</td><td>$50</td><td>$50</td>
+              <td>$50</td><td>$50</td><td>$50</td><td>$50</td><td>$50</td><td>$50</td>
+            </tr>
+            <tr>
+              <td>Movilidad</td>
+              <td>$120</td><td>$120</td><td>$120</td><td>$120</td><td>$120</td><td>$120</td>
+              <td>$120</td><td>$120</td><td>$120</td><td>$120</td><td>$120</td><td>$120</td>
+            </tr>
+            <tr>
+              <td>Constitución empresa</td>
+              <td>$300</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td>
+              <td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td>
+            </tr>
+            <tr>
+              <td>Cuenta bancaria (recuperable)</td>
+              <td>$150</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td>
+              <td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td>
+            </tr>
+            <tr>
+              <td>Registro marca Perú (INDECOPI)</td>
+              <td>$0</td><td>$300</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td>
+              <td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td>
+            </tr>
+            <tr>
+              <td>Registro marca USA</td>
+              <td>$0</td><td>$0</td><td>$600</td><td>$0</td><td>$0</td><td>$0</td>
+              <td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td>
+            </tr>
+            <tr>
+              <td>Merchandising / souvenirs</td>
+              <td>$150</td><td>$150</td><td>$150</td><td>$150</td><td>$150</td><td>$150</td>
+              <td>$150</td><td>$150</td><td>$150</td><td>$150</td><td>$150</td><td>$150</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td><strong>Total mensual</strong></td>
+              <td><strong>$2,030</strong></td>
+              <td><strong>$2,030</strong></td>
+              <td><strong>$2,980</strong></td>
+              <td><strong>$2,080</strong></td>
+              <td><strong>$2,080</strong></td>
+              <td><strong>$2,380</strong></td>
+              <td><strong>$2,080</strong></td>
+              <td><strong>$2,080</strong></td>
+              <td><strong>$2,380</strong></td>
+              <td><strong>$2,080</strong></td>
+              <td><strong>$2,080</strong></td>
+              <td><strong>$2,380</strong></td>
+            </tr>
+          </tfoot>
+        </table>
       </div>
       
-      <div style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: #666;">
-        Alto turismo (Jun-Sep) vs temporada baja (Ene-Mar)
+      <div style="margin-top: 1rem;">
+        <p><strong>Total gastos operativos anuales:</strong> <span class="highlight">$26,660</span></p>
+        <p><strong>Gastos únicos (constitución/registros):</strong> $1,200 (incluidos en total)</p>
+        <p><strong>Gastos mensuales promedio:</strong> $2,222</p>
       </div>
     </div>
   </section>
 
-  <!-- TABLA DE UTILIDADES BRUTAS ACTUALIZADA -->
+  <!-- TABLA DE UTILIDADES BRUTAS -->
   <section id="utilidades">
-    <div class="section-label">Proyección Actualizada</div>
-    <h2 class="section-title">Utilidades brutas por canal de ventas 2026</h2>
+    <div class="section-label">Bloque 2</div>
+    <h2 class="section-title">Tabla de utilidades brutas por canal – Año 2026 (USD)</h2>
     <p class="section-intro">
-      Distribución realista basada en estacionalidad turística. Los meses de junio a septiembre
-      representan la alta temporada en Cusco y destinos andinos, mientras que enero-marzo es temporada baja.
+      Distribución mensual de utilidades por los cuatro canales principales,
+      considerando estacionalidad turística en Perú.
     </p>
 
     <div class="card">
-      <h3>Tabla de utilidades brutas por canal – Año 2026 (USD)</h3>
-      <p>Distribución proporcional entre los cuatro canales de venta:</p>
+      <h3>Utilidades mensuales por canal de venta</h3>
+      <p>
+        Los canales están distribuidos proporcionalmente según su contribución histórica
+        en el mercado turístico peruano.
+      </p>
 
       <div class="table-wrapper">
         <table>
@@ -858,21 +770,244 @@
       </div>
       
       <div style="margin-top: 1rem;">
+        <p><strong>Distribución porcentual por canal:</strong></p>
+        <ul style="font-size: 0.85rem; margin-left: 1rem;">
+          <li><strong>Ventas directas:</strong> 30% del total ($10,080 anual)</li>
+          <li><strong>Agencias revendedoras:</strong> 20% del total ($6,720 anual)</li>
+          <li><strong>OTA's internacionales:</strong> 30% del total ($10,080 anual)</li>
+          <li><strong>Programa tour documentales:</strong> 20% del total ($6,720 anual)</li>
+        </ul>
         <p><strong>Total utilidades brutas anuales:</strong> <span class="highlight">$33,600</span></p>
-        <p><strong>Gastos operativos anuales:</strong> $26,660 (según tabla anterior)</p>
-        <p><strong>Utilidad neta proyectada año 1:</strong> <span class="highlight">$6,940</span></p>
-        <p><em>Nota: Esta proyección es conservadora y considera estacionalidad real del turismo en Perú.</em></p>
       </div>
     </div>
   </section>
 
-  <!-- PLANES DE INVERSIÓN REALISTAS -->
-  <section id="estructura-servicios">
-    <div class="section-label">Opciones de Inversión Realistas</div>
-    <h2 class="section-title">Tres Modelos con Retorno Superior al Banco</h2>
+  <!-- TABLA FLUJO DE CAJA -->
+  <section id="flujo">
+    <div class="section-label">Bloque 3</div>
+    <h2 class="section-title">Flujo de caja mensual – Año 2026 (USD)</h2>
     <p class="section-intro">
-      Cada opción incluye carta de compromiso legal que garantiza recuperación progresiva del capital,
-      más participación del 25% en utilidades reales. Retorno 2-4 veces mejor que un banco tradicional.
+      Comparación mensual entre utilidades brutas y gastos operativos.
+      Muestra claramente el punto de equilibrio y la generación de caja positiva.
+    </p>
+
+    <div class="card">
+      <h3>Análisis de flujo de caja mensual</h3>
+      <p>
+        Los primeros tres meses requieren inversión (flujo negativo), luego el negocio
+        genera caja positiva de manera consistente.
+      </p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Concepto / Mes</th>
+              <th>Ene</th><th>Feb</th><th>Mar</th><th>Abr</th><th>May</th><th>Jun</th>
+              <th>Jul</th><th>Ago</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dic</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Utilidades brutas</td>
+              <td>$0</td><td>$450</td><td>$1,100</td><td>$3,200</td><td>$4,100</td><td>$4,800</td>
+              <td>$5,000</td><td>$5,000</td><td>$4,500</td><td>$4,000</td><td>$3,000</td><td>$2,450</td>
+            </tr>
+            <tr>
+              <td>Gastos operativos</td>
+              <td>$2,030</td><td>$2,030</td><td>$2,980</td><td>$2,080</td><td>$2,080</td><td>$2,380</td>
+              <td>$2,080</td><td>$2,080</td><td>$2,380</td><td>$2,080</td><td>$2,080</td><td>$2,380</td>
+            </tr>
+            <tr>
+              <td>Resultado mensual</td>
+              <td class="negative">-$2,030</td>
+              <td class="negative">-$1,580</td>
+              <td class="negative">-$1,880</td>
+              <td>$1,120</td>
+              <td>$2,020</td>
+              <td>$2,420</td>
+              <td>$2,920</td>
+              <td>$2,920</td>
+              <td>$2,120</td>
+              <td>$1,920</td>
+              <td>$920</td>
+              <td>$70</td>
+            </tr>
+            <tr>
+              <td>Acumulado</td>
+              <td class="negative">-$2,030</td>
+              <td class="negative">-$3,610</td>
+              <td class="negative">-$5,490</td>
+              <td class="negative">-$4,370</td>
+              <td class="negative">-$2,350</td>
+              <td>$70</td>
+              <td>$2,990</td>
+              <td>$5,910</td>
+              <td>$8,030</td>
+              <td>$9,950</td>
+              <td>$10,870</td>
+              <td>$10,940</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top: 0.9rem;">
+        <p>
+          <strong>Punto de equilibrio (break-even):</strong> Se alcanza en <strong>junio</strong> (acumulado positivo: $70).
+        </p>
+        <p>
+          <strong>Inversión requerida inicial:</strong> <span class="negative">$5,490</span> acumulado negativo hasta marzo.
+        </p>
+        <p>
+          <strong>Utilidad neta anual acumulada:</strong> <span class="highlight">$10,940</span> (después de cubrir todos los gastos).
+        </p>
+        <p>
+          <em>Nota: Esta utilidad neta considera sólo gastos operativos. La inversión inicial de $7,500 se recupera vía los planes de inversión.</em>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLA RESUMEN -->
+  <section id="resumen">
+    <div class="section-label">Bloque 4</div>
+    <h2 class="section-title">Tabla resumen – Año 2026</h2>
+    <p class="section-intro">
+      Consolidación anual de todas las cifras financieras clave para una visión completa
+      del desempeño proyectado.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Resumen financiero anual</h3>
+        <p>
+          Consolidación de ingresos, gastos y resultados para el primer año de operaciones.
+        </p>
+
+        <div class="table-wrapper">
+          <table>
+            <tbody>
+              <tr>
+                <td><strong>Utilidades brutas totales</strong></td>
+                <td style="text-align:right;"><strong>$33,600</strong></td>
+              </tr>
+              <tr>
+                <td>Ventas directas (30%)</td>
+                <td style="text-align:right;">$10,080</td>
+              </tr>
+              <tr>
+                <td>Agencias revendedoras (20%)</td>
+                <td style="text-align:right;">$6,720</td>
+              </tr>
+              <tr>
+                <td>OTA's internacionales (30%)</td>
+                <td style="text-align:right;">$10,080</td>
+              </tr>
+              <tr>
+                <td>Programa tour documentales (20%)</td>
+                <td style="text-align:right;">$6,720</td>
+              </tr>
+              <tr>
+                <td><strong>Gastos operativos totales</strong></td>
+                <td style="text-align:right;"><strong>$26,660</strong></td>
+              </tr>
+              <tr>
+                <td>Gastos fijos mensuales</td>
+                <td style="text-align:right;">$19,460</td>
+              </tr>
+              <tr>
+                <td>Gastos únicos (constitución/registros)</td>
+                <td style="text-align:right;">$1,200</td>
+              </tr>
+              <tr>
+                <td>Gastos variables (viajes/merchandising)</td>
+                <td style="text-align:right;">$6,000</td>
+              </tr>
+              <tr>
+                <td><strong>Utilidad neta operativa año 1</strong></td>
+                <td style="text-align:right;"><strong class="highlight">$6,940</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Margen neto</strong></td>
+                <td style="text-align:right;"><strong>20.7%</strong></td>
+              </tr>
+              <tr>
+                <td><strong>ROI operativo (sin inversión inicial)</strong></td>
+                <td style="text-align:right;"><strong>92.5%</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Indicadores clave de desempeño</h3>
+        <p>
+          Métricas financieras que demuestran la viabilidad y rentabilidad del modelo.
+        </p>
+
+        <div class="table-wrapper">
+          <table>
+            <tbody>
+              <tr>
+                <td><strong>Punto de equilibrio (mes)</strong></td>
+                <td style="text-align:right;"><strong>Junio</strong></td>
+              </tr>
+              <tr>
+                <td>Acumulado negativo máximo</td>
+                <td style="text-align:right;">$5,490 (marzo)</td>
+              </tr>
+              <tr>
+                <td>Inversión inicial requerida</td>
+                <td style="text-align:right;">$7,500</td>
+              </tr>
+              <tr>
+                <td>Mejor mes (utilidad neta)</td>
+                <td style="text-align:right;">Julio/Agosto: $2,920</td>
+              </tr>
+              <tr>
+                <td>Peor mes (pérdida)</td>
+                <td style="text-align:right;">Enero: -$2,030</td>
+              </tr>
+              <tr>
+                <td><strong>Utilidad promedio mensual (a partir de abril)</strong></td>
+                <td style="text-align:right;"><strong>$1,926</strong></td>
+              </tr>
+              <tr>
+                <td>Margen bruto promedio</td>
+                <td style="text-align:right;">64.8%</td>
+              </tr>
+              <tr>
+                <td>Estacionalidad (alto/bajo)</td>
+                <td style="text-align:right;">Jun-Sep: 59% del ingreso</td>
+              </tr>
+              <tr>
+                <td><strong>Capital de trabajo necesario</strong></td>
+                <td style="text-align:right;"><strong>$5,500</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Cash flow libre anual</strong></td>
+                <td style="text-align:right;"><strong>$6,940</strong></td>
+              </tr>
+              <tr>
+                <td><strong>ROI total con inversión $7,500</strong></td>
+                <td style="text-align:right;"><strong class="highlight">92.5%</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANES DE INVERSIÓN -->
+  <section id="planes">
+    <div class="section-label">Bloque 5</div>
+    <h2 class="section-title">Opciones de Inversión con Garantías</h2>
+    <p class="section-intro">
+      Basado en la utilidad neta proyectada de $6,940 y capital requerido de $7,500,
+      ofrecemos tres modelos de inversión con retorno superior al banco tradicional.
     </p>
 
     <div class="grid-3">
@@ -880,120 +1015,89 @@
       <div class="plan-card">
         <div class="plan-badge">Básico</div>
         <div class="plan-header">
-          <div class="recovery-badge">Retorno 50-100%</div>
+          <div class="recovery-badge">50-61% retorno</div>
           <h3>Plan Básico</h3>
           <div class="plan-price">$3,750</div>
-          <p style="font-size:0.85rem; color:#666;">Mitad de inversión, mitad de retorno</p>
+          <p style="font-size:0.85rem; color:#666;">Mitad de inversión</p>
         </div>
         
         <div class="plan-feature">
           <span class="check">✓</span>
-          <span><strong>Garantía año 1:</strong> $1,875 (50% del capital)</span>
+          <span><strong>Garantía año 1:</strong> $1,875 (50% capital)</span>
         </div>
         
         <div class="plan-feature">
           <span class="check">✓</span>
-          <span><strong>Garantía año 2:</strong> $3,750 (100% del capital)</span>
+          <span><strong>Garantía año 2:</strong> $3,750 (100% capital)</span>
         </div>
         
         <div class="plan-feature">
           <span class="check">✓</span>
-          <span><strong>Participación:</strong> 25% en utilidades × 3 años</span>
+          <span><strong>Participación:</strong> 25% utilidades × 3 años</span>
         </div>
         
         <div class="year-breakdown">
-          <h4>Proyección de Retorno en 3 años</h4>
-          
           <div class="scenario scenario-guaranteed">
             <h5>GARANTIZADO <span class="highlight-guarantee">100% SEGURO</span></h5>
-            <p><strong>Año 1:</strong> $1,875 (garantizado)</p>
-            <p><strong>Año 2:</strong> $1,875 (garantizado) = <strong>$3,750 recuperado</strong></p>
-            <p><strong>Año 3:</strong> $1,875 (garantizado) = <strong>$5,625 total</strong></p>
-            <p><strong>Retorno:</strong> <strong class="highlight-guarantee">50%</strong> (vs 37% banco)</p>
+            <p><strong>3 años:</strong> $5,625 total</p>
+            <p><strong>Retorno:</strong> <strong class="highlight-guarantee">50%</strong></p>
+            <p><strong>Ventaja vs banco:</strong> +13%</p>
           </div>
           
           <div class="scenario scenario-projected">
             <h5>PROYECTADO <span class="highlight">ALTA PROBABILIDAD</span></h5>
-            <p><strong>Año 1:</strong> $1,735 (25% de $6,940) <em>+ garantía</em></p>
-            <p><strong>Año 2:</strong> $2,000 (crecimiento 15%) = <strong>$3,735 acum</strong></p>
-            <p><strong>Año 3:</strong> $2,300 (crecimiento 15%) = <strong>$6,035 acum</strong></p>
-            <p><strong>Retorno total:</strong> <strong class="highlight">61%</strong> (1.6× banco)</p>
-          </div>
-          
-          <div class="scenario scenario-bank">
-            <h5>BANCO EQUIVALENTE</h5>
-            <p><strong>Préstamo $3,750 a 3 años</strong></p>
-            <p><strong>Total a pagar:</strong> $5,137</p>
-            <p><strong>Retorno banco:</strong> 37%</p>
-            <p><strong>Nuestra ventaja:</strong> <strong class="highlight">+24% más retorno</strong></p>
+            <p><strong>3 años:</strong> $6,035 total</p>
+            <p><strong>Retorno:</strong> <strong class="highlight">61%</strong></p>
+            <p><strong>Ventaja vs banco:</strong> +24%</p>
           </div>
         </div>
       </div>
 
-      <!-- PLAN 2: ÓPTIMO (RECOMENDADO) -->
+      <!-- PLAN 2: ÓPTIMO -->
       <div class="plan-card premium">
         <div class="plan-badge">Recomendado</div>
         <div class="plan-header">
-          <div class="guarantee-badge">¡Mejor que banco!</div>
+          <div class="guarantee-badge">50-100% retorno</div>
           <h3>Plan Óptimo</h3>
           <div class="plan-price">$7,500</div>
-          <p style="font-size:0.85rem; color:#666;">Balance ideal riesgo/retorno</p>
+          <p style="font-size:0.85rem; color:#666;">Inversión completa</p>
         </div>
         
         <div class="plan-feature">
           <span class="check">✓</span>
-          <span><strong>Garantía año 1:</strong> $3,750 (50% del capital)</span>
+          <span><strong>Garantía año 1:</strong> $3,750 (50% capital)</span>
         </div>
         
         <div class="plan-feature">
           <span class="check">✓</span>
-          <span><strong>Garantía año 2:</strong> $7,500 (100% del capital)</span>
+          <span><strong>Garantía año 2:</strong> $7,500 (100% capital)</span>
         </div>
         
         <div class="plan-feature">
           <span class="check">✓</span>
-          <span><strong>Participación:</strong> 25% en utilidades × 3 años</span>
-        </div>
-        
-        <div class="plan-feature">
-          <span class="check">✓</span>
-          <span><strong>Extra:</strong> Derecho preferente futuras rondas</span>
+          <span><strong>Participación:</strong> 25% utilidades × 3 años</span>
         </div>
         
         <div class="year-breakdown">
-          <h4>Proyección de Retorno en 3 años</h4>
-          
           <div class="scenario scenario-guaranteed">
             <h5>GARANTIZADO <span class="highlight-guarantee">100% SEGURO</span></h5>
-            <p><strong>Año 1:</strong> $3,750 (garantizado)</p>
-            <p><strong>Año 2:</strong> $3,750 (garantizado) = <strong>$7,500 recuperado</strong></p>
-            <p><strong>Año 3:</strong> $3,750 (garantizado) = <strong>$11,250 total</strong></p>
-            <p><strong>Retorno:</strong> <strong class="highlight-guarantee">50%</strong> (vs 37% banco)</p>
+            <p><strong>3 años:</strong> $11,250 total</p>
+            <p><strong>Retorno:</strong> <strong class="highlight-guarantee">50%</strong></p>
+            <p><strong>Ventaja vs banco:</strong> +13%</p>
           </div>
           
           <div class="scenario scenario-projected">
             <h5>PROYECTADO <span class="highlight">ESCENARIO REALISTA</span></h5>
-            <p><strong>Año 1:</strong> $1,735 (25% de $6,940) → Paga garantía $3,750</p>
-            <p><strong>Año 2:</strong> $2,000 (crecimiento) + $1,265 pendiente = $3,265</p>
-            <p><strong>Año 3:</strong> $2,300 (crecimiento) + $2,300 extra = <strong>$4,600</strong></p>
-            <p><strong>Total 3 años:</strong> <strong class="highlight">$11,615</strong> (55% retorno)</p>
+            <p><strong>3 años:</strong> $11,615 total</p>
+            <p><strong>Retorno:</strong> <strong class="highlight">55%</strong></p>
+            <p><strong>Ventaja vs banco:</strong> +18%</p>
           </div>
           
           <div class="scenario" style="background:rgba(136,178,58,0.1); border-left-color:var(--green-light);">
-            <h5>OPTIMISTA <span class="highlight">SI SUPERA PROYECCIÓN</span></h5>
-            <p><strong>Utilidad año 1:</strong> $10,000 (44% mayor)</p>
-            <p><strong>Año 1:</strong> $2,500 (25%) → <strong>Paga $3,750 garantía</strong></p>
-            <p><strong>Año 2:</strong> $3,000 (25%) → <strong>Recupera 100% capital</strong></p>
-            <p><strong>Año 3:</strong> $3,500 (25%) = <strong>$3,500 ganancia neta</strong></p>
-            <p><strong>Total 3 años:</strong> <strong class="highlight">$14,250</strong> (90% retorno)</p>
-          </div>
-          
-          <div class="scenario scenario-bank">
-            <h5>COMPARATIVO BANCO</h5>
-            <p><strong>Banco:</strong> $7,500 → $10,300 (37%)</p>
-            <p><strong>Nosotros (garantizado):</strong> $7,500 → $11,250 (50%)</p>
-            <p><strong>Ventaja mínima:</strong> <strong class="highlight">+13% más retorno</strong></p>
-            <p><strong>Ventaja potencial:</strong> <strong class="highlight">+53% más retorno</strong></p>
+            <h5>OPTIMISTA <span class="highlight">SI CRECE +20%</span></h5>
+            <p><strong>3 años:</strong> $14,250 total</p>
+            <p><strong>Retorno:</strong> <strong class="highlight">90%</strong></p>
+            <p><strong>Ventaja vs banco:</strong> +53%</p>
           </div>
         </div>
       </div>
@@ -1002,7 +1106,7 @@
       <div class="plan-card aggressive">
         <div class="plan-badge">Premium</div>
         <div class="plan-header">
-          <div class="guarantee-badge">Máximo potencial</div>
+          <div class="guarantee-badge">50-120% retorno</div>
           <h3>Plan Premium</h3>
           <div class="plan-price">$15,000</div>
           <p style="font-size:0.85rem; color:#666;">Para expansión acelerada</p>
@@ -1010,136 +1114,102 @@
         
         <div class="plan-feature">
           <span class="check">✓</span>
-          <span><strong>Garantía año 1:</strong> $7,500 (50% del capital)</span>
+          <span><strong>Garantía año 1:</strong> $7,500 (50% capital)</span>
         </div>
         
         <div class="plan-feature">
           <span class="check">✓</span>
-          <span><strong>Garantía año 2:</strong> $15,000 (100% del capital)</span>
+          <span><strong>Garantía año 2:</strong> $15,000 (100% capital)</span>
         </div>
         
         <div class="plan-feature">
           <span class="check">✓</span>
-          <span><strong>Participación:</strong> 30% en utilidades × 3 años</span>
-        </div>
-        
-        <div class="plan-feature">
-          <span class="check">✓</span>
-          <span><strong>Representante:</strong> En consejo directivo</span>
+          <span><strong>Participación:</strong> 30% utilidades × 3 años</span>
         </div>
         
         <div class="year-breakdown">
-          <h4>Proyección de Retorno en 3 años</h4>
-          
           <div class="scenario scenario-guaranteed">
             <h5>GARANTIZADO <span class="highlight-guarantee">100% SEGURO</span></h5>
-            <p><strong>Año 1:</strong> $7,500 (garantizado)</p>
-            <p><strong>Año 2:</strong> $7,500 (garantizado) = <strong>$15,000 recuperado</strong></p>
-            <p><strong>Año 3:</strong> $7,500 (garantizado) = <strong>$22,500 total</strong></p>
+            <p><strong>3 años:</strong> $22,500 total</p>
             <p><strong>Retorno:</strong> <strong class="highlight-guarantee">50%</strong></p>
+            <p><strong>Ventaja vs banco:</strong> +13%</p>
           </div>
           
           <div class="scenario scenario-projected">
             <h5>CON EXPANSIÓN <span class="highlight">CAPITAL EXTRA</span></h5>
-            <p><strong>Utilidad con expansión:</strong></p>
-            <p>Año 1: $8,330 (20% mayor con más capital)</p>
-            <p>Año 2: $12,000 (44% crecimiento)</p>
-            <p>Año 3: $15,000 (25% crecimiento)</p>
-            <p><strong>Participación 30%:</strong> $2,500 + $3,600 + $4,500</p>
-            <p><strong>Total 3 años:</strong> <strong class="highlight">$10,600</strong> + capital</p>
-          </div>
-          
-          <div class="scenario scenario-bank">
-            <h5>BANCO EQUIVALENTE</h5>
-            <p><strong>Préstamo $15,000 a 3 años</strong></p>
-            <p><strong>Total a pagar:</strong> $20,550</p>
-            <p><strong>Retorno banco:</strong> 37% ($5,550)</p>
-            <p><strong>Nuestra ventaja (garantizada):</strong> <strong class="highlight">+$1,950 más</strong></p>
-            <p><strong>Ventaja potencial:</strong> <strong class="highlight">+$5,050 más</strong></p>
+            <p><strong>3 años:</strong> $25,600 total</p>
+            <p><strong>Retorno:</strong> <strong class="highlight">71%</strong></p>
+            <p><strong>Ventaja vs banco:</strong> +34%</p>
           </div>
         </div>
       </div>
     </div>
 
     <div class="card" style="margin-top: 1.5rem;">
-      <h3>Resumen Comparativo de los 3 Planes</h3>
+      <h3>Comparativa: Banco vs Perú Nature</h3>
       
       <div class="table-wrapper">
-        <table class="comparison-table">
+        <table>
           <thead>
             <tr>
               <th>Concepto</th>
-              <th>Plan Básico $3,750</th>
-              <th>Plan Óptimo $7,500</th>
-              <th>Plan Premium $15,000</th>
-              <th>Banco Equivalente</th>
+              <th>Banco Tradicional</th>
+              <th>Perú Nature (Garantizado)</th>
+              <th>Perú Nature (Proyectado)</th>
+              <th>Ventaja Perú Nature</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td><strong>Inversión: $7,500</strong></td>
+              <td>Préstamo con intereses</td>
+              <td>Carta compromiso + participación</td>
+              <td>Carta compromiso + participación</td>
+              <td>Garantías + potencial mayor</td>
+            </tr>
+            <tr>
+              <td><strong>Retorno 3 años</strong></td>
+              <td>$10,300 (37%)</td>
+              <td>$11,250 (50%)</td>
+              <td>$11,615-$14,250 (55-90%)</td>
+              <td>+13% a +53% más</td>
+            </tr>
+            <tr>
               <td><strong>Garantía año 1</strong></td>
-              <td>$1,875 (50%)</td>
-              <td>$3,750 (50%)</td>
-              <td>$7,500 (50%)</td>
-              <td>$0 (solo intereses)</td>
+              <td>Solo intereses (~$750)</td>
+              <td>50% capital ($3,750)</td>
+              <td>50% capital ($3,750)</td>
+              <td>5 veces más garantizado</td>
             </tr>
             <tr>
               <td><strong>Garantía año 2</strong></td>
-              <td>$3,750 (100%)</td>
-              <td>$7,500 (100%)</td>
-              <td>$15,000 (100%)</td>
               <td>No aplica</td>
+              <td>100% capital ($7,500)</td>
+              <td>100% capital ($7,500)</td>
+              <td>Recuperación total asegurada</td>
+            </tr>
+            <tr>
+              <td><strong>Flexibilidad</strong></td>
+              <td>Pagos fijos mensuales</td>
+              <td>Pagos anuales según desempeño</td>
+              <td>Pagos anuales según desempeño</td>
+              <td>Mayor flexibilidad</td>
             </tr>
             <tr>
               <td><strong>Participación utilidades</strong></td>
-              <td>25% × 3 años</td>
-              <td>25% × 3 años</td>
-              <td>30% × 3 años</td>
               <td>0%</td>
-            </tr>
-            <tr>
-              <td><strong>Retorno garantizado 3 años</strong></td>
-              <td>$5,625 (50%)</td>
-              <td>$11,250 (50%)</td>
-              <td>$22,500 (50%)</td>
-              <td>37%</td>
-            </tr>
-            <tr>
-              <td><strong>Retorno proyectado 3 años</strong></td>
-              <td>$6,035 (61%)</td>
-              <td>$11,615 (55%)</td>
-              <td>$25,600 (71%)</td>
-              <td>37%</td>
-            </tr>
-            <tr>
-              <td><strong>Retorno máximo potencial</strong></td>
-              <td>70-80%</td>
-              <td>90-100%</td>
-              <td>100-120%</td>
-              <td>37% (fijo)</td>
-            </tr>
-            <tr>
-              <td><strong>Ventaja vs banco (mínima)</strong></td>
-              <td>+13%</td>
-              <td>+13%</td>
-              <td>+13%</td>
-              <td>—</td>
-            </tr>
-            <tr>
-              <td><strong>Ventaja vs banco (potencial)</strong></td>
-              <td>+43%</td>
-              <td>+63%</td>
-              <td>+83%</td>
-              <td>—</td>
+              <td>25% × 3 años</td>
+              <td>25% × 3 años</td>
+              <td>Exposición a crecimiento real</td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <p style="margin-top: 1rem;">
-        <strong>Conclusión:</strong> Invertir con Perú Nature ofrece un retorno <strong>50-100% mayor</strong> que un banco tradicional,
-        con garantías contractuales de recuperación del capital. Mientras el banco ofrece 37% fijo en 3 años,
-        nosotros ofrecemos 50% garantizado + potencial de 61-120% dependiendo del desempeño real del negocio.
+        <strong>Conclusión:</strong> Invertir $7,500 con Perú Nature ofrece un retorno <strong>50-90% en 3 años</strong>,
+        versus 37% de un banco. Ofrecemos garantías contractuales de recuperación del 50% en año 1 y 100% en año 2,
+        más participación del 25% en utilidades reales. <strong>Mínimo 13% más retorno que un banco, potencial hasta 53% más.</strong>
       </p>
     </div>
   </section>
@@ -1147,23 +1217,11 @@
 </main>
 
 <footer>
-  © <span id="year"></span> Perú Nature – Inversión inteligente con retorno superior y garantías contractuales.
+  © <span id="year"></span> Perú Nature – Plan financiero completo con proyecciones realistas y opciones de inversión.
 </footer>
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
-  
-  // Animación simple para las barras del gráfico
-  document.addEventListener('DOMContentLoaded', function() {
-    const bars = document.querySelectorAll('.month-bar');
-    bars.forEach(bar => {
-      const height = bar.style.height;
-      bar.style.height = '0%';
-      setTimeout(() => {
-        bar.style.height = height;
-      }, 300);
-    });
-  });
 </script>
 
 </body>
