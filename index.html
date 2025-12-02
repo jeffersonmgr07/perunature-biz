@@ -14,7 +14,13 @@
         body {
             font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
             min-height: 100vh;
-            background: linear-gradient(-45deg, #1c3017, #29451f, #3f6b27, #5a8c39, #88b23a);
+            background: linear-gradient(-45deg, 
+                #0d1a0a,      /* Nuevo tono muy oscuro */
+                #1c3017,      /* Mantienes el más oscuro que ya tienes */
+                #29451f,      /* Mantienes este */
+                #3f6b27,      /* El tercero más oscuro */
+                #5a8c39       /* El cuarto más oscuro, eliminando el más claro */
+            );
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             display: flex;
