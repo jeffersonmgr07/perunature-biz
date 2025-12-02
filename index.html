@@ -21,7 +21,7 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            padding: 20px;
+            padding: 16px;
         }
 
         @keyframes gradientBG {
@@ -38,21 +38,21 @@
 
         .container {
             text-align: center;
-            padding: 40px 20px;
-            max-width: 1000px;
+            padding: 32px 16px;
+            max-width: 800px;
             width: 100%;
             position: relative;
             z-index: 2;
         }
 
         .welcome-text {
-            font-size: 4rem;
+            font-size: 3.2rem;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 30px;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 24px;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             position: relative;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
         }
 
         /* Animación de brillo en el texto */
@@ -85,7 +85,7 @@
         }
 
         .logo-container {
-            margin: 40px 0;
+            margin: 24px 0 16px 0;
             position: relative;
             display: inline-block;
             width: 100%;
@@ -93,9 +93,9 @@
 
         .logo {
             width: 80%;
-            max-width: 800px;
+            max-width: 640px;
             height: auto;
-            filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.3));
+            filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.3));
             animation: float 6s ease-in-out infinite;
         }
 
@@ -104,13 +104,13 @@
                 transform: translateY(0) rotate(0deg);
             }
             25% {
-                transform: translateY(-15px) rotate(0.5deg);
+                transform: translateY(-12px) rotate(0.5deg);
             }
             50% {
                 transform: translateY(0) rotate(0deg);
             }
             75% {
-                transform: translateY(-10px) rotate(-0.5deg);
+                transform: translateY(-8px) rotate(-0.5deg);
             }
         }
 
@@ -118,31 +118,31 @@
             display: inline-block;
             background: linear-gradient(135deg, #88b23a, #5a8c39);
             color: white;
-            font-size: 1.3rem;
+            font-size: 1.04rem;
             font-weight: 600;
-            padding: 20px 50px;
+            padding: 16px 40px;
             border-radius: 50px;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1.2px;
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(136, 178, 58, 0.4),
-                        0 0 0 2px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 6.4px 20px rgba(136, 178, 58, 0.4),
+                        0 0 0 1.6px rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
-            margin-top: 20px;
+            margin-top: 8px;
         }
 
         .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 35px rgba(136, 178, 58, 0.6),
-                        0 0 0 2px rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 9.6px 28px rgba(136, 178, 58, 0.6),
+                        0 0 0 1.6px rgba(255, 255, 255, 0.2);
         }
 
         .cta-button:active {
-            transform: translateY(-2px);
+            transform: translateY(-1.6px);
         }
 
         .cta-button::after {
@@ -165,11 +165,11 @@
 
         .subtitle {
             color: rgba(255, 255, 255, 0.85);
-            font-size: 1.2rem;
-            margin-top: 25px;
+            font-size: 0.96rem;
+            margin-top: 20px;
             font-weight: 300;
-            letter-spacing: 0.5px;
-            max-width: 600px;
+            letter-spacing: 0.4px;
+            max-width: 480px;
             margin-left: auto;
             margin-right: auto;
             line-height: 1.6;
@@ -186,44 +186,46 @@
 
         @media (max-width: 768px) {
             .welcome-text {
-                font-size: 3rem;
+                font-size: 2.4rem;
             }
             
             .logo {
                 width: 90%;
-                max-width: 500px;
+                max-width: 400px;
             }
             
             .cta-button {
-                padding: 18px 40px;
-                font-size: 1.2rem;
+                padding: 14.4px 32px;
+                font-size: 0.96rem;
+                margin-top: 4px;
             }
             
             .subtitle {
-                font-size: 1.1rem;
-                padding: 0 20px;
+                font-size: 0.88rem;
+                padding: 0 16px;
             }
         }
 
         @media (max-width: 480px) {
             .welcome-text {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             
             .logo {
                 width: 95%;
-                max-width: 400px;
+                max-width: 320px;
             }
             
             .cta-button {
-                padding: 16px 35px;
-                font-size: 1.1rem;
+                padding: 12.8px 28px;
+                font-size: 0.88rem;
                 width: 90%;
-                max-width: 300px;
+                max-width: 240px;
+                margin-top: 2px;
             }
             
             .subtitle {
-                font-size: 1rem;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -253,12 +255,12 @@
                 'rgba(63, 107, 39, 0.25)'
             ];
             
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 16; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                // Tamaño aleatorio
-                const size = Math.random() * 60 + 20;
+                // Tamaño aleatorio (reducido 20%)
+                const size = Math.random() * 48 + 16;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 
@@ -283,8 +285,8 @@
         function animateParticle(particle) {
             let x = parseFloat(particle.style.left);
             let y = parseFloat(particle.style.top);
-            let xSpeed = (Math.random() - 0.5) * 0.5;
-            let ySpeed = (Math.random() - 0.5) * 0.5;
+            let xSpeed = (Math.random() - 0.5) * 0.4;
+            let ySpeed = (Math.random() - 0.5) * 0.4;
             
             function move() {
                 x += xSpeed;
