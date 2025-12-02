@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perú Nature – Cronograma de Implementación</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --green-dark: #29451f;
+      --green-mid: #3f6b27;
+      --green-light: #88b23a;
+      --bg-cream: #f5f5ec;
+      --text-main: #fdfdfd;
+      --text-dark: #222;
+      --table-even: #f9f9f3;
+      --table-odd: #ffffff;
+      --accent: #2e7d32;
+      --phase1: #3f6b27;
+      --phase2: #5a8c39;
+      --phase3: #88b23a;
+      --phase4: #2e7d32;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(41, 69, 31, 0.97);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--text-main);
+    }
+
+    .nav-logo img {
+      height: 38px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+      color: #f3f3f3;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.25rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--green-light);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.25rem 4rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+      color: var(--green-mid);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+      color: #163014;
+    }
+
+    .section-intro {
+      max-width: 42rem;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: #444;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 18px 30px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.03);
+      margin-bottom: 2rem;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #1e3a19;
+      border-left: 4px solid var(--green-light);
+      padding-left: 0.75rem;
+    }
+
+    .highlight {
+      color: var(--green-mid);
+      font-weight: 700;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 2rem auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--green-light), var(--green-dark));
+      border-radius: 3px;
+    }
+
+    .timeline-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .timeline-content {
+      width: 45%;
+      padding: 1.2rem 1.5rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.05);
+      position: relative;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+      margin-right: auto;
+      margin-left: 0;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    .timeline-content::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      background: var(--green-light);
+      border-radius: 50%;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::before {
+      right: -30px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content::before {
+      left: -30px;
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .timeline-date::before {
+      content: '📅';
+      font-size: 0.9rem;
+    }
+
+    .timeline-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .timeline-task {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.85rem;
+    }
+
+    .timeline-task::before {
+      content: '✓';
+      color: var(--green-light);
+      font-weight: bold;
+      min-width: 1.2rem;
+    }
+
+    /* MONTHLY GRID */
+    .month-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .month-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.2rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      border-top: 4px solid var(--green-mid);
+    }
+
+    .month-header {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(63, 107, 39, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .month-phase {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      font-weight: 600;
+      background: var(--green-light);
+      color: white;
+    }
+
+    .task-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.85rem;
+    }
+
+    .task-item::before {
+      content: '•';
+      color: var(--green-mid);
+      font-weight: bold;
+    }
+
+    .task-critical {
+      color: var(--green-dark);
+      font-weight: 600;
+    }
+
+    .task-note {
+      font-size: 0.75rem;
+      color: #666;
+      font-style: italic;
+      margin-top: 0.3rem;
+      padding-left: 1.2rem;
+    }
+
+    /* QUARTERLY TABLE */
+    .quarter-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .quarter-table th {
+      background: rgba(63, 107, 39, 0.1);
+      color: var(--green-dark);
+      font-weight: 600;
+      padding: 0.8rem;
+      text-align: left;
+      border-bottom: 2px solid var(--green-mid);
+    }
+
+    .quarter-table td {
+      padding: 0.8rem;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      vertical-align: top;
+    }
+
+    .quarter-table tr:nth-child(even) {
+      background: rgba(136, 178, 58, 0.05);
+    }
+
+    .quarter {
+      font-weight: 600;
+      color: var(--green-dark);
+      width: 20%;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .timeline::before {
+        left: 30px;
+      }
+
+      .timeline-content {
+        width: calc(100% - 60px);
+        margin-left: 60px !important;
+        margin-right: 0 !important;
+      }
+
+      .timeline-content::before {
+        left: -40px !important;
+        right: auto !important;
+      }
+
+      .month-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .card {
+        padding: 1.5rem;
+      }
+      
+      .quarter-table {
+        font-size: 0.8rem;
+      }
+      
+      .quarter-table th,
+      .quarter-table td {
+        padding: 0.6rem 0.4rem;
+      }
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      padding: 2rem 1rem 3rem;
+      color: rgba(0,0,0,0.55);
+      background: rgba(41,69,31,0.03);
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="img/Logoperunature1.png" alt="Perú Nature Logo" />
+        <span style="font-weight:600; font-size:0.95rem;">Perú Nature</span>
+      </div>
+      <nav class="nav-links">
+        <a href="inicio.html">Inicio</a>
+        <a href="finanzas.html">Plan financiero</a>
+        <a href="servicios.html">Estructura de servicios</a>
+        <a href="cronogramas.html">Cronogramas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="section-label">Plan de Implementación</div>
+      <h1 class="section-title">Cronograma de Tareas y Hitos Críticos 2026</h1>
+      <p class="section-intro">
+        Plan detallado de implementación con hitos legales, operativos y financieros 
+        para el lanzamiento exitoso de Perú Nature. Incluye tareas mensuales, supervisiones 
+        periódicas y cumplimiento regulatorio.
+      </p>
+
+      <!-- TIMELINE CRÍTICA -->
+      <div class="card">
+        <h3>Hitos Críticos de Implementación</h3>
+        <p>Secuencia temporal de las actividades más importantes para el funcionamiento legal y operativo de la empresa.</p>
+        
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">Enero 2026 - Semana 1</div>
+              <div class="timeline-title">Constitución Legal y Financiera</div>
+              <div class="timeline-desc">
+                <div class="timeline-task">Constitución en notaría (Sociedad Anónima Cerrada)</div>
+                <div class="timeline-task">Creación de cuenta bancaria corporativa</div>
+                <div class="timeline-task">Tramite RUC ante SUNAT</div>
+                <div class="timeline-task">Depósito de capital social requerido</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">Enero 2026 - Semana 2-3</div>
+              <div class="timeline-title">Primera Supervisión Cusco</div>
+              <div class="timeline-desc">
+                <div class="timeline-task">Viaje a Cusco para establecer operaciones</div>
+                <div class="timeline-task">Visita y selección de espacio coworking</div>
+                <div class="timeline-task">Reunión con proveedores locales</div>
+                <div class="timeline-task">Contratación de primer guía operativo</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">Febrero 2026</div>
+              <div class="timeline-title">Registro de Marca y Plataformas</div>
+              <div class="timeline-desc">
+                <div class="timeline-task">Registro de marca Perú (INDECOPI)</div>
+                <div class="timeline-task">Contrato con Cuponatic para promociones</div>
+                <div class="timeline-task">Desarrollo web y sistema de reservas</div>
+                <div class="timeline-task">Primer reporte financiero (Enero)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">Marzo 2026</div>
+              <div class="timeline-title">Expansión Internacional</div>
+              <div class="timeline-desc">
+                <div class="timeline-task">Creación empresa USA (Delaware o Wyoming)</div>
+                <div class="timeline-task">Protección propiedad intelectual internacional</div>
+                <div class="timeline-task">Segunda supervisión Cusco (operaciones)</div>
+                <div class="timeline-task">Presentación estados financieros Q1</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">Junio 2026</div>
+              <div class="timeline-title">Consolidación Operativa</div>
+              <div class="timeline-desc">
+                <div class="timeline-task">Tercera supervisión Cusco (temporada alta)</div>
+                <div class="timeline-task">Presentación estados financieros Q2</div>
+                <div class="timeline-task">Evaluación expansión a segunda región</div>
+                <div class="timeline-task">Contratos con primeras OTA's internacionales</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CRONOGRAMA MENSUAL DETALLADO -->
+      <div class="card">
+        <h3>Cronograma Mensual Detallado 2026</h3>
+        <p>Desglose de tareas específicas por mes con responsables y entregables.</p>
+        
+        <div class="month-grid">
+          <!-- ENERO -->
+          <div class="month-card">
+            <div class="month-header">
+              Enero 2026
+              <span class="month-phase">Fase 1: Fundación</span>
+            </div>
+            <div class="task-item task-critical">Constitución legal en notaría</div>
+            <div class="task-note">Sociedad Anónima Cerrada, minuta constitutiva</div>
+            
+            <div class="task-item task-critical">Apertura cuenta bancaria</div>
+            <div class="task-note">BCP/Interbank, firma de los socios</div>
+            
+            <div class="task-item">Tramite RUC SUNAT</div>
+            <div class="task-note">Inscripción como agencia de viajes</div>
+            
+            <div class="task-item">Primera supervisión Cusco</div>
+            <div class="task-note">5-7 días en terreno</div>
+            
+            <div class="task-item">Contratación contador</div>
+            <div class="task-note">Servicio profesional mensual</div>
+          </div>
+
+          <!-- FEBRERO -->
+          <div class="month-card">
+            <div class="month-header">
+              Febrero 2026
+              <span class="month-phase">Fase 1: Fundación</span>
+            </div>
+            <div class="task-item task-critical">Registro marca INDECOPI</div>
+            <div class="task-note">Clase 39 (servicios de viajes)</div>
+            
+            <div class="task-item">Contrato Cuponatic</div>
+            <div class="task-note">Promociones de lanzamiento</div>
+            
+            <div class="task-item">Desarrollo web completo</div>
+            <div class="task-note">Landing page + sistema reservas</div>
+            
+            <div class="task-item">Primer reporte financiero</div>
+            <div class="task-note">Estado de situación inicial</div>
+            
+            <div class="task-item">Marketing digital inicial</div>
+            <div class="task-note">Campañas redes sociales</div>
+          </div>
+
+          <!-- MARZO -->
+          <div class="month-card">
+            <div class="month-header">
+              Marzo 2026
+              <span class="month-phase">Fase 2: Expansión</span>
+            </div>
+            <div class="task-item task-critical">Creación empresa USA</div>
+            <div class="task-note">Delaware Corporation</div>
+            
+            <div class="task-item">Protección IP internacional</div>
+            <div class="task-note">Marca en USPTO</div>
+            
+            <div class="task-item">Segunda supervisión Cusco</div>
+            <div class="task-note">10-12 días operativos</div>
+            
+            <div class="task-item task-critical">Presentación estados financieros Q1</div>
+            <div class="task-note">Ene-Mar para inversionistas</div>
+            
+            <div class="task-item">Integración con OTA's</div>
+            <div class="task-note">Booking.com, Expedia, etc.</div>
+          </div>
+
+          <!-- ABRIL -->
+          <div class="month-card">
+            <div class="month-header">
+              Abril 2026
+              <span class="month-phase">Fase 2: Expansión</span>
+            </div>
+            <div class="task-item">Contratación productor audiovisual</div>
+            <div class="task-note">Primer documental de prueba</div>
+            
+            <div class="task-item">Sistema de reservas automatizado</div>
+            <div class="task-note">Para agencias revendedoras</div>
+            
+            <div class="task-item">Certificación SERNANP</div>
+            <div class="task-note">Para operar en áreas naturales</div>
+            
+            <div class="task-item">Seguros de responsabilidad civil</div>
+            <div class="task-note">Para tours y documentales</div>
+            
+            <div class="task-item">Capacitación equipo operativo</div>
+            <div class="task-note">Guías y coordinadores</div>
+          </div>
+
+          <!-- MAYO -->
+          <div class="month-card">
+            <div class="month-header">
+              Mayo 2026
+              <span class="month-phase">Fase 3: Operación</span>
+            </div>
+            <div class="task-item">Lanzamiento oficial tours</div>
+            <div class="task-note">Primeras ventas directas</div>
+            
+            <div class="task-item">Tercera supervisión Cusco</div>
+            <div class="task-note">Evaluación temporada media</div>
+            
+            <div class="task-item">Reporte financiero mensual</div>
+            <div class="task-note">Abril para gestión interna</div>
+            
+            <div class="task-item">Contratos con 10+ agencias</div>
+            <div class="task-note">Red de distribución inicial</div>
+            
+            <div class="task-item">Optimización procesos operativos</div>
+            <div class="task-note">Mejoras basadas en experiencia</div>
+          </div>
+
+          <!-- JUNIO -->
+          <div class="month-card">
+            <div class="month-header">
+              Junio 2026
+              <span class="month-phase">Fase 3: Operación</span>
+            </div>
+            <div class="task-item task-critical">Presentación estados financieros Q2</div>
+            <div class="task-note">Abr-Jun para inversionistas</div>
+            
+            <div class="task-item">Evaluación expansión regional</div>
+            <div class="task-note">Puno o Arequipa como segunda base</div>
+            
+            <div class="task-item">Contratos OTA's internacionales</div>
+            <div class="task-note">TripAdvisor, Airbnb Experiences</div>
+            
+            <div class="task-item">Primer documental publicado</div>
+            <div class="task-note">Lanzamiento YouTube/plataformas</div>
+            
+            <div class="task-item">Preparación temporada alta</div>
+            <div class="task-note">Jun-Ago: máxima ocupación</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABLA TRIMESTRAL -->
+      <div class="card">
+        <h3>Cumplimiento Trimestral Obligatorio</h3>
+        <p>Actividades recurrentes cada tres meses para mantenimiento legal, financiero y operativo.</p>
+        
+        <table class="quarter-table">
+          <thead>
+            <tr>
+              <th>Trimestre</th>
+              <th>Actividades Financieras</th>
+              <th>Supervisión Operativa</th>
+              <th>Reportes Obligatorios</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="quarter">Q1 (Ene-Mar)</td>
+              <td>
+                <div class="task-item">Presentación estados financieros</div>
+                <div class="task-item">Declaración de impuestos</div>
+                <div class="task-item">Revisión presupuesto vs real</div>
+              </td>
+              <td>
+                <div class="task-item">Supervisión Cusco (Ene)</div>
+                <div class="task-item">Supervisión Cusco (Mar)</div>
+                <div class="task-item">Evaluación proveedores</div>
+              </td>
+              <td>
+                <div class="task-item">Reporte inversionistas</div>
+                <div class="task-item">SUNAT (PDT 621)</div>
+                <div class="task-item">INDECOPI (marca)</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="quarter">Q2 (Abr-Jun)</td>
+              <td>
+                <div class="task-item">Presentación estados financieros</div>
+                <div class="task-item">Declaración de impuestos</div>
+                <div class="task-item">Auditoría interna</div>
+              </td>
+              <td>
+                <div class="task-item">Supervisión Cusco (May)</div>
+                <div class="task-item">Pre-temporada alta</div>
+                <div class="task-item">Evaluación expansión</div>
+              </td>
+              <td>
+                <div class="task-item">Reporte inversionistas</div>
+                <div class="task-item">SUNAT (PDT 621)</div>
+                <div class="task-item">Reporte MINTUR</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="quarter">Q3 (Jul-Sep)</td>
+              <td>
+                <div class="task-item">Presentación estados financieros</div>
+                <div class="task-item">Declaración de impuestos</div>
+                <div class="task-item">Planificación presupuesto 2027</div>
+              </td>
+              <td>
+                <div class="task-item">Supervisión Cusco (Ago)</div>
+                <div class="task-item">Temporada alta operativa</div>
+                <div class="task-item">Contratación adicional</div>
+              </td>
+              <td>
+                <div class="task-item">Reporte inversionistas</div>
+                <div class="task-item">SUNAT (PDT 621)</div>
+                <div class="task-item">Renovación seguros</div>
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="quarter">Q4 (Oct-Dic)</td>
+              <td>
+                <div class="task-item">Presentación estados financieros</div>
+                <div class="task-item">Declaración anual de impuestos</div>
+                <div class="task-item">Cierre contable anual</div>
+              </td>
+              <td>
+                <div class="task-item">Supervisión Cusco (Nov)</div>
+                <div class="task-item">Evaluación año completo</div>
+                <div class="task-item">Planificación 2027</div>
+              </td>
+              <td>
+                <div class="task-item">Reporte anual inversionistas</div>
+                <div class="task-item">SUNAT anual</div>
+                <div class="task-item">INDECOPI renovación</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(136, 178, 58, 0.05); border-radius: 8px;">
+          <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Notas importantes:</strong></p>
+          <ul style="font-size: 0.85rem; margin-left: 1.5rem;">
+            <li>Supervisiones Cusco: Ene, Mar, May, Ago, Nov (5 viajes anuales)</li>
+            <li>Estados financieros: Presentación trimestral a inversionistas (Mar, Jun, Sep, Dic)</li>
+            <li>Declaraciones SUNAT: Mensuales (PDT 621) y anual (Renta 3ra categoría)</li>
+            <li>Reportes MINTUR: Obligatorios para agencias de viajes operativas</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RESUMEN EJECUTIVO -->
+      <div class="card">
+        <h3>Resumen Ejecutivo de Cumplimiento</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+          <div style="padding: 1rem; background: rgba(63, 107, 39, 0.05); border-radius: 8px;">
+            <h4 style="font-size: 0.95rem; color: var(--green-dark); margin-bottom: 0.5rem;">📋 Legal y Administrativo</h4>
+            <div class="task-item">Constitución notaría: Enero</div>
+            <div class="task-item">RUC SUNAT: Enero</div>
+            <div class="task-item">Marca INDECOPI: Febrero</div>
+            <div class="task-item">Empresa USA: Marzo</div>
+          </div>
+          
+          <div style="padding: 1rem; background: rgba(90, 140, 57, 0.05); border-radius: 8px;">
+            <h4 style="font-size: 0.95rem; color: var(--green-dark); margin-bottom: 0.5rem;">💰 Financiero y Fiscal</h4>
+            <div class="task-item">Cuenta bancaria: Enero</div>
+            <div class="task-item">Reportes trimestrales: Mar, Jun, Sep, Dic</div>
+            <div class="task-item">Declaraciones SUNAT: Mensual</div>
+            <div class="task-item">Auditoría interna: Semestral</div>
+          </div>
+          
+          <div style="padding: 1rem; background: rgba(136, 178, 58, 0.05); border-radius: 8px;">
+            <h4 style="font-size: 0.95rem; color: var(--green-dark); margin-bottom: 0.5rem;">📍 Operativo y Supervisión</h4>
+            <div class="task-item">Supervisiones Cusco: 5 viajes/año</div>
+            <div class="task-item">Contratos OTA's: Marzo-Junio</div>
+            <div class="task-item">Agencias revendedoras: 10+ en Mayo</div>
+            <div class="task-item">Documentales: 1ro en Junio</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Perú Nature – Cronograma de implementación y cumplimiento 2026.
+    <br>Plan estratégico de tareas críticas para lanzamiento y operación exitosa.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
