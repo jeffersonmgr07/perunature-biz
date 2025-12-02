@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perú Nature – Plan Financiero</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green-dark: #29451f;
+      --green-mid:  #3f6b27;
+      --green-light:#88b23a;
+      --bg-cream:   #f5f5ec;
+      --text-main:  #fdfdfd;
+      --text-dark:  #222;
+      --negative:   #b00020;
+      --table-even: #f9f9f3;
+      --table-odd:  #ffffff;
+      --plan1:      #3f6b27;
+      --plan2:      #5a8c39;
+      --plan3:      #88b23a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(41, 69, 31, 0.97);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--text-main);
+    }
+
+    .nav-logo img {
+      height: 32px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+      color: #f3f3f3;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.25rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--green-light);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--green-dark), #1c3017 55%, var(--green-mid));
+      color: var(--text-main);
+      padding: 3.5rem 1.25rem 3rem;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      max-width: 36rem;
+      opacity: 0.95;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.28);
+      font-size: 0.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-badge span {
+      font-weight: 600;
+      color: var(--green-light);
+    }
+
+    .hero-side-card {
+      background: rgba(0,0,0,0.18);
+      border-radius: 18px;
+      padding: 1.4rem 1.5rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.9rem;
+    }
+
+    .hero-side-card h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-side-card ul {
+      margin-top: 0.5rem;
+      margin-left: 1rem;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.25rem 4rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+      color: var(--green-mid);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.65rem;
+      color: #163014;
+    }
+
+    .section-intro {
+      max-width: 42rem;
+      font-size: 0.96rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.4rem 1.5rem;
+      box-shadow: 0 18px 30px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.03);
+      margin-bottom: 1.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.6rem;
+      color: #1e3a19;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      margin-top: 0.75rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+    }
+
+    th, td {
+      padding: 0.45rem 0.55rem;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    th:first-child,
+    td:first-child {
+      text-align: left;
+    }
+
+    thead th {
+      background: rgba(63,107,39,0.07);
+      color: #1f361a;
+      font-weight: 600;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: var(--table-even);
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: var(--table-odd);
+    }
+
+    tfoot td {
+      font-weight: 700;
+      border-top: 2px solid rgba(0,0,0,0.12);
+      background-color: rgba(63,107,39,0.05);
+    }
+
+    .negative {
+      color: var(--negative);
+      font-weight: 600;
+    }
+
+    .highlight {
+      color: var(--green-mid);
+      font-weight: 600;
+    }
+
+    .chart-placeholder {
+      margin-top: 1.2rem;
+      padding: 1.3rem;
+      border-radius: 16px;
+      border: 1px dashed rgba(0,0,0,0.2);
+      font-size: 0.85rem;
+      background: #fafaf3;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0,2fr) minmax(0,1.5fr);
+      gap: 1.6rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.6rem;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.45rem 1.1rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid rgba(41,69,31,0.4);
+      background: #ffffff;
+      color: #29451f;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn:hover {
+      background: rgba(136,178,58,0.12);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    }
+
+    .plan-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.4rem 1.5rem;
+      box-shadow: 0 18px 30px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.03);
+      height: 100%;
+      border-top: 4px solid var(--plan1);
+    }
+
+    .plan-card.premium {
+      border-top-color: var(--plan2);
+      transform: scale(1.02);
+      box-shadow: 0 25px 40px rgba(0,0,0,0.08);
+    }
+
+    .plan-card.aggressive {
+      border-top-color: var(--plan3);
+    }
+
+    .plan-header {
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .plan-header h3 {
+      margin-bottom: 0.4rem;
+      color: var(--green-dark);
+    }
+
+    .plan-price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .plan-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    .plan-feature .check {
+      color: var(--green-mid);
+      font-weight: bold;
+      min-width: 1rem;
+    }
+
+    .recovery-badge {
+      display: inline-block;
+      background: rgba(136,178,58,0.15);
+      color: var(--green-mid);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .year-breakdown {
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px dashed rgba(0,0,0,0.1);
+    }
+
+    .year-breakdown h4 {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: var(--green-mid);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      padding: 1.5rem 1rem 2rem;
+      color: rgba(0,0,0,0.55);
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner,
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: minmax(0,1fr);
+      }
+      
+      .plan-card.premium {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <div class="nav-logo">
+      <img src="Logo%20Horizontal%20Blanco.png" alt="Perú Nature Logo" />
+      <span style="font-weight:600; font-size:0.9rem;">Perú Nature</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="#plan-financiero">Plan financiero</a>
+      <a href="#estructura-servicios">Estructura de servicios</a>
+      <a href="#cronogramas">Cronogramas</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">
+        <span>Finanzas 2026</span> Proyección clara para decidir invertir hoy
+      </div>
+      <h1>Modelo financiero sólido y escalable</h1>
+      <p class="hero-subtitle">
+        Esta página presenta el modelo financiero de Perú Nature, mostrando
+        cómo evoluciona desde una fase inicial de inversión controlada hacia una
+        rentabilidad creciente y sostenible a lo largo del primer año.
+      </p>
+      <p class="hero-subtitle">
+        Los tres primeros meses requieren inyección de capital; a partir del
+        cuarto mes, el proyecto genera flujo de caja positivo y construye una
+        utilidad anual neta atractiva.
+      </p>
+    </div>
+    <aside class="hero-side-card">
+      <h2>Resumen financiero clave</h2>
+      <ul>
+        <li><strong>Inicio:</strong> Enero 2026</li>
+        <li><strong>Inversión en flujo negativo (M1-M3):</strong> ≈ $5,390</li>
+        <li><strong>Utilidad bruta anual:</strong> ≈ $51,880</li>
+        <li><strong>Gastos anuales:</strong> ≈ $26,660</li>
+        <li><strong>Utilidad neta anual:</strong> ≈ $25,220</li>
+      </ul>
+      <p style="margin-top:0.7rem;">
+        Estos números no consideran el potencial de crecimiento del segundo año,
+        ni la expansión a nuevos destinos y mercados internacionales.
+      </p>
+    </aside>
+  </div>
+</section>
+
+<main id="plan-financiero">
+
+  <!-- TABLA DE GASTOS -->
+  <section id="gastos">
+    <div class="section-label">Bloque 1</div>
+    <h2 class="section-title">Estructura de gastos operativos</h2>
+    <p class="section-intro">
+      La estrategia de Perú Nature se basa en mantener una estructura de costos
+      ligera, con oficinas compartidas, tercerización inteligente de servicios
+      clave (contenido, publicidad, contabilidad) y una inversión constante pero
+      controlada en marca y experiencia para el viajero.
+    </p>
+
+    <div class="card">
+      <h3>Tabla de gastos mensuales – Año 2026 (USD)</h3>
+      <p>
+        A continuación se desglosan los principales gastos fijos y variables
+        estimados por mes, incluyendo constitución de empresa, registros de
+        marca y merchandising para turistas.
+      </p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Gasto / Mes</th>
+              <th>Ene</th><th>Feb</th><th>Mar</th><th>Abr</th><th>May</th><th>Jun</th>
+              <th>Jul</th><th>Ago</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dic</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Oficina Cusco</td>
+              <td>$100</td><td>$100</td><td>$100</td><td>$100</td><td>$100</td><td>$100</td>
+              <td>$100</td><td>$100</td><td>$100</td><td>$100</td><td>$100</td><td>$100</td>
+            </tr>
+            <tr>
+              <td>Oficina Miraflores</td>
+              <td>$0</td><td>$0</td><td>$100</td><td>$100</td><td>$100</td><td>$100</td>
+              <td>$100</td><td>$100</td><td>$100</td><td>$100</td><td>$100</td><td>$100</td>
+            </tr>
+            <tr>
+              <td>Transfer Cusco</td>
+              <td>$0</td><td>$0</td><td>$250</td><td>$250</td><td>$250</td><td>$250</td>
+              <td>$250</td><td>$250</td><td>$250</td><td>$250</td><td>$250</td><td>$250</td>
+            </tr>
+            <tr>
+              <td>Contador</td>
+              <td>$120</td><td>$120</td><td>$120</td><td>$120</td><td>$120</td><td>$120</td>
+              <td>$120</td><td>$120</td><td>$120</td><td>$120</td><td>$120</td><td>$120</td>
+            </tr>
+            <tr>
+              <td>TikToker</td>
+              <td>$0</td><td>$450</td><td>$450</td><td>$450</td><td>$450</td><td>$450</td>
+              <td>$450</td><td>$450</td><td>$450</td><td>$450</td><td>$450</td><td>$450</td>
+            </tr>
+            <tr>
+              <td>Publicidad redes</td>
+              <td>$300</td><td>$300</td><td>$300</td><td>$300</td><td>$300</td><td>$300</td>
+              <td>$300</td><td>$300</td><td>$300</td><td>$300</td><td>$300</td><td>$300</td>
+            </tr>
+            <tr>
+              <td>Viaje a Cusco + viáticos</td>
+              <td>$300</td><td>$0</td><td>$300</td><td>$0</td><td>$0</td><td>$300</td>
+              <td>$0</td><td>$0</td><td>$300</td><td>$0</td><td>$0</td><td>$300</td>
+            </tr>
+            <tr>
+              <td>Uniformes (gorros y casacas)</td>
+              <td>$90</td><td>$90</td><td>$90</td><td>$90</td><td>$90</td><td>$90</td>
+              <td>$90</td><td>$90</td><td>$90</td><td>$90</td><td>$90</td><td>$90</td>
+            </tr>
+            <tr>
+              <td>Productor audiovisual</td>
+              <td>$350</td><td>$350</td><td>$350</td><td>$350</td><td>$350</td><td>$350</td>
+              <td>$350</td><td>$350</td><td>$350</td><td>$350</td><td>$350</td><td>$350</td>
+            </tr>
+            <tr>
+              <td>Web + Hosting</td>
+              <td>$50</td><td>$50</td><td>$50</td><td>$50</td><td>$50</td><td>$50</td>
+              <td>$50</td><td>$50</td><td>$50</td><td>$50</td><td>$50</td><td>$50</td>
+            </tr>
+            <tr>
+              <td>Movilidad</td>
+              <td>$120</td><td>$120</td><td>$120</td><td>$120</td><td>$120</td><td>$120</td>
+              <td>$120</td><td>$120</td><td>$120</td><td>$120</td><td>$120</td><td>$120</td>
+            </tr>
+            <tr>
+              <td>Constitución empresa</td>
+              <td>$300</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td>
+              <td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td>
+            </tr>
+            <tr>
+              <td>Cuenta bancaria (recuperable)</td>
+              <td>$150</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td>
+              <td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td>
+            </tr>
+            <tr>
+              <td>Registro marca Perú (INDECOPI)</td>
+              <td>$0</td><td>$300</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td>
+              <td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td>
+            </tr>
+            <tr>
+              <td>Registro marca USA</td>
+              <td>$0</td><td>$0</td><td>$600</td><td>$0</td><td>$0</td><td>$0</td>
+              <td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td>
+            </tr>
+            <tr>
+              <td>Merchandising / souvenirs</td>
+              <td>$150</td><td>$150</td><td>$150</td><td>$150</td><td>$150</td><td>$150</td>
+              <td>$150</td><td>$150</td><td>$150</td><td>$150</td><td>$150</td><td>$150</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td><strong>Total mensual</strong></td>
+              <td><strong>$2,030</strong></td>
+              <td><strong>$2,030</strong></td>
+              <td><strong>$2,980</strong></td>
+              <td><strong>$2,080</strong></td>
+              <td><strong>$2,080</strong></td>
+              <td><strong>$2,380</strong></td>
+              <td><strong>$2,080</strong></td>
+              <td><strong>$2,080</strong></td>
+              <td><strong>$2,380</strong></td>
+              <td><strong>$2,080</strong></td>
+              <td><strong>$2,080</strong></td>
+              <td><strong>$2,380</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="chart-placeholder">
+        Aquí puedes insertar un gráfico de barras o líneas mostrando la evolución
+        de los gastos mensuales (Ene–Dic 2026).
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLA DE UTILIDADES BRUTAS -->
+  <section id="utilidades">
+    <div class="section-label">Bloque 2</div>
+    <h2 class="section-title">Utilidades brutas por canal de ventas</h2>
+    <p class="section-intro">
+      Los ingresos de Perú Nature provienen de cuatro canales principales:
+      ventas directas de tours clásicos, agencias revendedoras, OTA's
+      internacionales y tours documentales. La combinación de estos canales
+      diversifica el riesgo y potencia el crecimiento.
+    </p>
+
+    <div class="card">
+      <h3>Tabla de utilidades brutas por canal – Año 2026 (USD)</h3>
+      <p>Las cifras representan utilidad estimada, no facturación bruta.</p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Canal / Mes</th>
+              <th>Ene</th><th>Feb</th><th>Mar</th><th>Abr</th><th>May</th><th>Jun</th>
+              <th>Jul</th><th>Ago</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dic</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ventas directas</td>
+              <td>$0</td><td>$300</td><td>$600</td><td>$1,000</td><td>$1,000</td><td>$1,400</td>
+              <td>$1,400</td><td>$1,400</td><td>$2,000</td><td>$2,000</td><td>$2,000</td><td>$2,000</td>
+            </tr>
+            <tr>
+              <td>Agencias revendedoras</td>
+              <td>$0</td><td>$150</td><td>$390</td><td>$650</td><td>$650</td><td>$910</td>
+              <td>$910</td><td>$910</td><td>$1,300</td><td>$1,300</td><td>$1,300</td><td>$1,300</td>
+            </tr>
+            <tr>
+              <td>OTA's internacionales</td>
+              <td>$0</td><td>$0</td><td>$0</td><td>$900</td><td>$900</td><td>$900</td>
+              <td>$1,500</td><td>$1,500</td><td>$1,500</td><td>$2,400</td><td>$2,400</td><td>$2,400</td>
+            </tr>
+            <tr>
+              <td>Programa tour documentales</td>
+              <td>$0</td><td>$0</td><td>$0</td><td>$600</td><td>$600</td><td>$600</td>
+              <td>$1,400</td><td>$1,400</td><td>$1,400</td><td>$2,400</td><td>$2,400</td><td>$2,400</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td><strong>Total utilidades brutas</strong></td>
+              <td><strong>$0</strong></td>
+              <td><strong>$450</strong></td>
+              <td><strong>$990</strong></td>
+              <td><strong>$3,150</strong></td>
+              <td><strong>$3,150</strong></td>
+              <td><strong>$3,810</strong></td>
+              <td><strong>$5,210</strong></td>
+              <td><strong>$5,210</strong></td>
+              <td><strong>$6,200</strong></td>
+              <td><strong>$8,100</strong></td>
+              <td><strong>$8,100</strong></td>
+              <td><strong>$8,100</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="chart-placeholder">
+        Aquí puedes colocar un gráfico comparativo de utilidades por canal
+        (por ejemplo, barras apiladas por mes o una dona por participación anual).
+      </div>
+
+      <div class="btn-row">
+        <a class="btn" href="finanzas-tours-clasicos.html">Detalle ventas directas →</a>
+        <a class="btn" href="finanzas-agencias.html">Detalle agencias revendedoras →</a>
+        <a class="btn" href="finanzas-otas.html">Detalle OTA's internacionales →</a>
+        <a class="btn" href="finanzas-documentales.html">Detalle programa documentales →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLA FLUJO (UTILIDADES - GASTOS) -->
+  <section id="flujo">
+    <div class="section-label">Bloque 3</div>
+    <h2 class="section-title">Flujo mensual: inversión vs resultado</h2>
+    <p class="section-intro">
+      Al comparar utilidades brutas con gastos mensuales obtenemos el flujo
+      de caja estimado. Los meses negativos representan la inversión que se
+      debe cubrir; a partir del cuarto mes el negocio genera caja positiva.
+    </p>
+
+    <div class="card">
+      <h3>Flujo de caja mensual – Año 2026 (USD)</h3>
+      <p>
+        En esta tabla se observa claramente la transición desde la fase de
+        inversión inicial a una etapa de rentabilidad sostenida.
+      </p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Concepto / Mes</th>
+              <th>Ene</th><th>Feb</th><th>Mar</th><th>Abr</th><th>May</th><th>Jun</th>
+              <th>Jul</th><th>Ago</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dic</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Utilidades brutas</td>
+              <td>$0</td><td>$450</td><td>$990</td><td>$3,150</td><td>$3,150</td><td>$3,810</td>
+              <td>$5,210</td><td>$5,210</td><td>$6,200</td><td>$8,100</td><td>$8,100</td><td>$8,100</td>
+            </tr>
+            <tr>
+              <td>Gastos</td>
+              <td>$2,030</td><td>$2,030</td><td>$2,980</td><td>$2,080</td><td>$2,080</td><td>$2,380</td>
+              <td>$2,080</td><td>$2,080</td><td>$2,380</td><td>$2,080</td><td>$2,080</td><td>$2,380</td>
+            </tr>
+            <tr>
+              <td>Resultado mensual</td>
+              <td class="negative">-$2,030</td>
+              <td class="negative">-$1,580</td>
+              <td class="negative">-$1,990</td>
+              <td>$1,070</td>
+              <td>$1,070</td>
+              <td>$1,430</td>
+              <td>$3,130</td>
+              <td>$3,130</td>
+              <td>$3,820</td>
+              <td>$6,020</td>
+              <td>$6,020</td>
+              <td>$5,720</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:0.9rem;">
+        La <span class="highlight">inversión total necesaria en flujo negativo</span>
+        (Ene–Mar) es de aproximadamente <strong>$5,600</strong>. A partir de
+        abril, cada mes genera resultados positivos crecientes.
+      </p>
+
+      <div class="chart-placeholder">
+        Aquí puedes insertar un gráfico de línea o área con el resultado mensual
+        (negativo y positivo) para visualizar el punto de quiebre (break-even).
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUMEN FINAL -->
+  <section id="resumen">
+    <div class="section-label">Bloque 4</div>
+    <h2 class="section-title">Resumen de utilidad neta y retorno esperado</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Tabla resumen – Año 2026</h3>
+        <p>
+          Este resumen consolida el desempeño financiero del primer año,
+          considerando todos los canales de venta y la estructura de gastos.
+        </p>
+
+        <div class="table-wrapper">
+          <table>
+            <tbody>
+              <tr>
+                <td>Utilidades brutas totales</td>
+                <td style="text-align:right;"><strong>$51,880</strong></td>
+              </tr>
+              <tr>
+                <td>Gastos operativos totales</td>
+                <td style="text-align:right;"><strong>$26,660</strong></td>
+              </tr>
+              <tr>
+                <td>Inversión en flujo negativo (enero–marzo)</td>
+                <td style="text-align:right;"><strong>$5,600</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Utilidad neta año 1</strong></td>
+                <td style="text-align:right;"><strong class="highlight">$25,220</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="margin-top:0.8rem;">
+          Con una inversión inicial destinada principalmente a sostener los
+          primeros tres meses y cubrir la estructura de marca, el proyecto no
+          sólo se vuelve autosostenible, sino que genera una utilidad neta
+          atractiva en el primer año.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Estrategia y proyección de valor</h3>
+        <p>
+          Perú Nature no es solo una agencia de viajes: es una plataforma
+          de contenido, experiencias y expansión de marca con visión regional
+          (Latam) e internacional.
+        </p>
+        <p>
+          Los recursos se destinan a acelerar la fase inicial y ganar tiempo:
+          posicionar la marca, asegurar presencia en los principales destinos
+          del Perú y consolidar los canales de venta (OTA's, agencias y
+          documentales).
+        </p>
+        <p>
+          El modelo proyecta una rentabilidad clara, diversificación
+          de ingresos y una base sólida para escalar a nuevos países en los
+          siguientes años.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANES DE INVERSIÓN MODIFICADOS -->
+  <section id="estructura-servicios">
+    <div class="section-label">Bloque 5</div>
+    <h2 class="section-title">Opciones de estructura de inversión</h2>
+    <p class="section-intro">
+      Basado en la inversión requerida de $5,600 y utilidad neta proyectada de $25,220
+      para el primer año, presentamos tres modelos diseñados para ofrecer seguridad
+      al inversor con diferentes niveles de compromiso y retorno.
+    </p>
+
+    <div class="grid-3">
+      <!-- PLAN 1: ENTRADA LIGERA -->
+      <div class="plan-card">
+        <div class="plan-header">
+          <div class="recovery-badge">Recuperación en 2-3 años</div>
+          <h3>Entrada Ligera</h3>
+          <div class="plan-price">$3,000 - $4,000</div>
+          <p style="font-size:0.85rem; color:#666;">Inversión reducida, retorno proporcional</p>
+        </div>
+        
+        <div class="plan-feature">
+          <span class="check">✓</span>
+          <span><strong>Participación:</strong> 15% en utilidades por 3 años</span>
+        </div>
+        
+        <div class="plan-feature">
+          <span class="check">✓</span>
+          <span><strong>Retorno mínimo garantizado:</strong> 8% anual ($240-$320)</span>
+        </div>
+        
+        <div class="plan-feature">
+          <span class="check">✓</span>
+          <span><strong>Proyección año 1:</strong> $3,783 (15% de $25,220)</span>
+        </div>
+        
+        <div class="plan-feature">
+          <span class="check">✓</span>
+          <span><strong>Recuperación capital:</strong> Al final del año 3</span>
+        </div>
+        
+        <div class="year-breakdown">
+          <h4>Desglose por año (ejemplo $3,500):</h4>
+          <p><strong>Año 1:</strong> $280 (8%) + $3,783 = <strong>$4,063</strong></p>
+          <p><strong>Año 2:</strong> $280 + ~$4,000 = <strong>~$4,280</strong></p>
+          <p><strong>Año 3:</strong> $280 + ~$4,000 + $3,500 = <strong>~$7,780</strong></p>
+          <p><strong>Total 3 años:</strong> <strong class="highlight">~$16,123</strong></p>
+        </div>
+      </div>
+
+      <!-- PLAN 2: ESTÁNDAR (RECOMENDADO) -->
+      <div class="plan-card premium">
+        <div class="plan-header">
+          <div class="recovery-badge">Posible recuperación en 1 año</div>
+          <h3>Inversión Estándar</h3>
+          <div class="plan-price">$5,500 - $6,000</div>
+          <p style="font-size:0.85rem; color:#666;">Balance ideal riesgo/retorno</p>
+        </div>
+        
+        <div class="plan-feature">
+          <span class="check">✓</span>
+          <span><strong>Participación:</strong> 20% en utilidades por 3 años</span>
+        </div>
+        
+        <div class="plan-feature">
+          <span class="check">✓</span>
+          <span><strong>Retorno mínimo garantizado:</strong> 10% anual ($550-$600)</span>
+        </div>
+        
+        <div class="plan-feature">
+          <span class="check">✓</span>
+          <span><strong>Proyección año 1:</strong> $5,044 (20% de $25,220)</span>
+        </div>
+        
+        <div class="plan-feature">
+          <span class="check">✓</span>
+          <span><strong>Recuperación capital:</strong> Posible en año 1 con buen desempeño</span>
+        </div>
+        
+        <div class="year-breakdown">
+          <h4>Desglose por año (ejemplo $5,600):</h4>
+          <p><strong>Año 1:</strong> $560 (10%) + $5,044 = <strong>$5,604</strong> <em>(¡Posible recuperación total!)</em></p>
+          <p><strong>Año 2:</strong> $560 + ~$5,500 = <strong>~$6,060</strong></p>
+          <p><strong>Año 3:</strong> $560 + ~$5,500 + $5,600 = <strong>~$11,660</strong></p>
+          <p><strong>Total 3 años:</strong> <strong class="highlight">~$23,324</strong></p>
+        </div>
+      </div>
+
+      <!-- PLAN 3: AGRESIVO -->
+      <div class="plan-card aggressive">
+        <div class="plan-header">
+          <div class="recovery-badge">Recuperación acelerada</div>
+          <h3>Inversión Agresiva</h3>
+          <div class="plan-price">$10,000 - $12,000</div>
+          <p style="font-size:0.85rem; color:#666;">Mayor capital, mayor retorno</p>
+        </div>
+        
+        <div class="plan-feature">
+          <span class="check">✓</span>
+          <span><strong>Participación:</strong> 25% en utilidades por 3 años</span>
+        </div>
+        
+        <div class="plan-feature">
+          <span class="check">✓</span>
+          <span><strong>Retorno mínimo garantizado:</strong> 12% anual ($1,200-$1,440)</span>
+        </div>
+        
+        <div class="plan-feature">
+          <span class="check">✓</span>
+          <span><strong>Proyección año 1:</strong> $6,305 (25% de $25,220)</span>
+        </div>
+        
+        <div class="plan-feature">
+          <span class="check">✓</span>
+          <span><strong>Recuperación capital:</strong> Recuperación rápida + plusvalía</span>
+        </div>
+        
+        <div class="year-breakdown">
+          <h4>Desglose por año (ejemplo $11,000):</h4>
+          <p><strong>Año 1:</strong> $1,320 (12%) + $6,305 = <strong>$7,625</strong></p>
+          <p><strong>Año 2:</strong> $1,320 + ~$6,500 = <strong>~$7,820</strong></p>
+          <p><strong>Año 3:</strong> $1,320 + ~$6,500 + $11,000 = <strong>~$18,820</strong></p>
+          <p><strong>Total 3 años:</strong> <strong class="highlight">~$34,265</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 1.5rem;">
+      <h3>Mecanismo de Garantía y Compromiso</h3>
+      
+      <p><strong>Sistema de pagos garantizados:</strong></p>
+      
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>Plan Entrada Ligera</th>
+              <th>Plan Inversión Estándar</th>
+              <th>Plan Inversión Agresiva</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Inversión base</strong></td>
+              <td>$3,500</td>
+              <td>$5,600</td>
+              <td>$11,000</td>
+            </tr>
+            <tr>
+              <td><strong>Retorno mínimo anual garantizado</strong></td>
+              <td>8% = $280</td>
+              <td>10% = $560</td>
+              <td>12% = $1,320</td>
+            </tr>
+            <tr>
+              <td><strong>Participación en utilidades</strong></td>
+              <td>15% = ~$3,783</td>
+              <td>20% = ~$5,044</td>
+              <td>25% = ~$6,305</td>
+            </tr>
+            <tr>
+              <td><strong>Total potencial año 1</strong></td>
+              <td><strong>$4,063</strong> (116% retorno)</td>
+              <td><strong>$5,604</strong> (100% retorno - ¡RECUPERA!)</td>
+              <td><strong>$7,625</strong> (69% retorno)</td>
+            </tr>
+            <tr>
+              <td><strong>Capital devuelto</strong></td>
+              <td>Año 3</td>
+              <td>Posible en año 1, garantizado año 3</td>
+              <td>Año 2-3 con plusvalía</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top: 1rem;">
+        <strong>Cláusulas especiales para el primer inversionista:</strong><br>
+        1. <strong>Derecho de preferencia</strong> en futuras rondas de inversión<br>
+        2. <strong>Veto consultivo</strong> en decisiones financieras clave<br>
+        3. <strong>Opción de salida anticipada</strong> después del año 1 con penalidad mínima<br>
+        4. <strong>Reevaluación de términos</strong> al final del período acordado (2-3 años)<br>
+        5. <strong>Prioridad en pago</strong> sobre futuros inversionistas
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © <span id="year"></span> Perú Nature – Proyección financiera y estructura de participación.
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
