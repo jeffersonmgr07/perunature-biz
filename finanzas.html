@@ -6,6 +6,7 @@
   <title>Perú Nature – Proyección Financiera 2026</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
@@ -45,7 +46,7 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 1000;
       background: rgba(41, 69, 31, 0.97);
       backdrop-filter: blur(6px);
       border-bottom: 1px solid rgba(255, 255,255, 0.08);
@@ -58,6 +59,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
     }
 
     .nav-logo {
@@ -98,6 +100,67 @@
 
     .nav-links a:hover::after {
       width: 100%;
+    }
+
+    /* MENÚ MÓVIL */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 1001;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(41, 69, 31, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 999;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .mobile-menu.active {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 1rem 0;
+      padding: 0.5rem 1rem;
+      text-align: center;
+      width: 100%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--green-light);
+    }
+
+    .close-menu {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
     }
 
     .hero {
@@ -535,6 +598,10 @@
         display: none;
       }
       
+      .mobile-menu-btn {
+        display: block;
+      }
+      
       .plan-badge {
         display: none;
       }
@@ -562,12 +629,30 @@
       <img src="img/Logoperunature1.png" alt="Perú Nature Logo" />
       <span style="font-weight:600; font-size:0.9rem;">Perú Nature</span>
     </div>
+    
+    <!-- Menú de escritorio -->
     <nav class="nav-links">
       <a href="index.html">Inicio</a>
       <a href="#plan-financiero">Plan financiero</a>
       <a href="EstructuraServicios.html">Estructura de servicios</a>
       <a href="Cronogramas.html">Cronogramas</a>
     </nav>
+    
+    <!-- Botón de menú móvil -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+  
+  <!-- Menú móvil -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu" id="closeMenuBtn">
+      <i class="fas fa-times"></i>
+    </button>
+    <a href="index.html">Inicio</a>
+    <a href="#plan-financiero" onclick="closeMobileMenu()">Plan financiero</a>
+    <a href="EstructuraServicios.html" onclick="closeMobileMenu()">Estructura de servicios</a>
+    <a href="Cronogramas.html" onclick="closeMobileMenu()">Cronogramas</a>
   </div>
 </header>
 
@@ -606,7 +691,6 @@
 </section>
 
 <main id="plan-financiero">
-
   <!-- TABLA DE GASTOS -->
   <section id="gastos">
     <div class="section-label">Estructura de Costos</div>
@@ -1403,6 +1487,37 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Funcionalidad del menú móvil
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const closeMenuBtn = document.getElementById('closeMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  
+  function openMobileMenu() {
+    mobileMenu.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  
+  mobileMenuBtn.addEventListener('click', openMobileMenu);
+  closeMenuBtn.addEventListener('click', closeMobileMenu);
+  
+  // Cerrar menú al hacer clic en un enlace
+  const mobileLinks = mobileMenu.querySelectorAll('a');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+  
+  // Cerrar menú al hacer clic fuera
+  mobileMenu.addEventListener('click', function(e) {
+    if (e.target === mobileMenu) {
+      closeMobileMenu();
+    }
+  });
 </script>
 
 </body>
