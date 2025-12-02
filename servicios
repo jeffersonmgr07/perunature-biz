@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perú Nature – Estructura de Servicios</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --green-dark: #29451f;
+      --green-mid: #3f6b27;
+      --green-light: #88b23a;
+      --bg-cream: #f5f5ec;
+      --text-main: #fdfdfd;
+      --text-dark: #222;
+      --table-even: #f9f9f3;
+      --table-odd: #ffffff;
+      --accent: #2e7d32;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(41, 69, 31, 0.97);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--text-main);
+    }
+
+    .nav-logo img {
+      height: 38px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+      color: #f3f3f3;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.25rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--green-light);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.25rem 4rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+      color: var(--green-mid);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+      color: #163014;
+    }
+
+    .section-intro {
+      max-width: 42rem;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: #444;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 18px 30px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.03);
+      margin-bottom: 2rem;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #1e3a19;
+      border-left: 4px solid var(--green-light);
+      padding-left: 0.75rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      margin-bottom: 0.8rem;
+      color: #444;
+    }
+
+    .card ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .card li {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .highlight {
+      color: var(--green-mid);
+      font-weight: 700;
+    }
+
+    .channel-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--green-light);
+      color: white;
+      border-radius: 50%;
+      font-weight: 700;
+      margin-right: 0.5rem;
+    }
+
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .strategy-item {
+      background: rgba(136, 178, 58, 0.05);
+      padding: 1rem;
+      border-radius: 12px;
+      border-left: 3px solid var(--green-light);
+    }
+
+    .strategy-item h4 {
+      font-size: 0.95rem;
+      color: var(--green-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .strategy-item p {
+      font-size: 0.85rem;
+      margin-bottom: 0;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      margin-top: 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    th, td {
+      padding: 0.8rem 0.7rem;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      white-space: nowrap;
+    }
+
+    th:first-child,
+    td:first-child {
+      text-align: left;
+    }
+
+    thead th {
+      background: rgba(63,107,39,0.07);
+      color: #1f361a;
+      font-weight: 600;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: var(--table-even);
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: var(--table-odd);
+    }
+
+    .month-header {
+      background-color: rgba(41, 69, 31, 0.1);
+      font-weight: 600;
+      color: var(--green-dark);
+    }
+
+    .destination-type {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-left: 0.5rem;
+    }
+
+    .cusco-classic { background: rgba(63, 107, 39, 0.1); color: var(--green-mid); }
+    .cusco-jungle { background: rgba(136, 178, 58, 0.1); color: #5a8c39; }
+    .cusco-inca { background: rgba(41, 69, 31, 0.1); color: var(--green-dark); }
+    .regional { background: rgba(46, 125, 50, 0.1); color: var(--accent); }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      padding: 2rem 1rem 3rem;
+      color: rgba(0,0,0,0.55);
+      background: rgba(41,69,31,0.03);
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 900px) {
+      .strategy-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .card {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="img/Logoperunature1.png" alt="Perú Nature Logo" />
+        <span style="font-weight:600; font-size:0.95rem;">Perú Nature</span>
+      </div>
+      <nav class="nav-links">
+        <a href="inicio.html">Inicio</a>
+        <a href="finanzas.html">Plan financiero</a>
+        <a href="servicios.html">Estructura de servicios</a>
+        <a href="cronogramas.html">Cronogramas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="section-label">Modelo Operativo</div>
+      <h1 class="section-title">Estructura de Servicios y Canales de Venta</h1>
+      <p class="section-intro">
+        Perú Nature implementa un modelo multi-canal estratégico que diversifica fuentes de ingreso,
+        minimiza riesgos operativos y maximiza escalabilidad. Cada canal tiene su propia estrategia
+        de captación, margen de utilidad y enfoque temporal.
+      </p>
+
+      <!-- CANAL 1: VENTAS DIRECTAS -->
+      <div class="card">
+        <h3><span class="channel-number">1</span> Ventas Directas - Paquetes Turísticos Web</h3>
+        <p>
+          <strong>Definición:</strong> Paquetes turísticos vendidos directamente a través de nuestra web 
+          para turistas finales que confían en nuestra marca y desean una experiencia personalizada.
+        </p>
+        
+        <p>
+          <strong>Estrategia de Captación:</strong> Marketing digital agresivo en redes sociales (Facebook, Instagram, TikTok) 
+          con contenido orgánico de alta calidad que muestre las experiencias reales de nuestros clientes.
+        </p>
+        
+        <div class="strategy-grid">
+          <div class="strategy-item">
+            <h4>Fase 1 - Posicionamiento (6 meses)</h4>
+            <p>Monto mínimo de reserva para afianzar clientes. El saldo se paga al llegar al destino. 
+            Aceptamos mayor operatividad de último momento para captar mercado.</p>
+          </div>
+          
+          <div class="strategy-item">
+            <h4>Fase 2 - Consolidación</h4>
+            <p>50% de adelanto al reservar, 50% días antes del viaje. Disminuye operatividad de último 
+            momento y riesgos de servicios agotados o encarecidos.</p>
+          </div>
+        </div>
+        
+        <p><strong>Ventaja Competitiva:</strong> Mayor margen (65%) al eliminar intermediarios. 
+        Control total sobre la experiencia del cliente y branding.</p>
+      </div>
+
+      <!-- CANAL 2: OTAS -->
+      <div class="card">
+        <h3><span class="channel-number">2</span> OTA's - Vendedores en Línea</h3>
+        <p>
+          <strong>Definición:</strong> Online Travel Agencies (Agencias de Viajes Online) como Booking.com, 
+          Expedia, Despegar, Airbnb Experiences, TripAdvisor, etc.
+        </p>
+        
+        <p>
+          <strong>¿Cómo funcionan?</strong> Establecemos contrato una vez, subimos los tours al sistema, 
+          y las OTA's venden automáticamente. Muchas pagan después de brindado el servicio, requiriendo 
+          capital de trabajo para operar reservas.
+        </p>
+        
+        <p><strong>Principales OTA's objetivo:</strong></p>
+        <ul>
+          <li>Booking.com (Experiences)</li>
+          <li>Expedia (Things to do)</li>
+          <li>Airbnb Experiences</li>
+          <li>TripAdvisor/Viator</li>
+          <li>Despegar (Actividades)</li>
+          <li>GetYourGuide</li>
+        </ul>
+        
+        <p><strong>Características:</strong> Menor margen por tour (45-50%) pero mayor volumen de ventas. 
+        Ideal para escalar operaciones sin aumentar equipo comercial proporcionalmente.</p>
+      </div>
+
+      <!-- CANAL 3: AGENCIAS REVENDEDORAS -->
+      <div class="card">
+        <h3><span class="channel-number">3</span> Agencias Revendedoras - Red de Distribución</h3>
+        <p>
+          <strong>Definición:</strong> Agencias de viajes tradicionales (principalmente en Chile, Argentina, 
+          Colombia, Brasil, EE.UU., Europa) que revenden nuestros paquetes a sus clientes.
+        </p>
+        
+        <p>
+          <strong>Estrategia:</strong> Reclutamiento masivo de miles de agencias mediante ferias turísticas, 
+          email marketing y contactos directos. Desarrollar web/sistema de reservas automatizado para 
+          minimizar operación manual.
+        </p>
+        
+        <div class="strategy-grid">
+          <div class="strategy-item">
+            <h4>Mercado Principal</h4>
+            <p>Chile (mercado inmediato), seguido de Argentina, Colombia, Brasil, EE.UU. y Europa.</p>
+          </div>
+          
+          <div class="strategy-item">
+            <h4>Incentivos</h4>
+            <p>Comisiones atractivas (15-20%), materiales de marketing, capacitación online, 
+            sistema de reservas automatizado.</p>
+          </div>
+        </div>
+        
+        <p><strong>Meta:</strong> 500+ agencias activas en primer año, 2,000+ en tres años. 
+        Margen intermedio (45%) con volumen sostenido.</p>
+      </div>
+
+      <!-- CANAL 4: TOURS DOCUMENTALES -->
+      <div class="card">
+        <h3><span class="channel-number">4</span> Tours Documentales - Producto Estrella</h3>
+        <p>
+          <strong>Definición:</strong> Expediciones grupales (12-20 personas) de 7-10 días donde los turistas 
+          son protagonistas de un documental cultural/educativo profesional.
+        </p>
+        
+        <p>
+          <strong>Estrategia de Lanzamiento:</strong> Comenzar con precios económicos para captar primeros 
+          grupos. Equipo básico de filmación que mejora progresivamente con las utilidades.
+        </p>
+        
+        <div class="strategy-grid">
+          <div class="strategy-item">
+            <h4>Fase 1 - Validación</h4>
+            <p>Precios competitivos, equipo básico, demostrar concepto y generar primeros documentales.</p>
+          </div>
+          
+          <div class="strategy-item">
+            <h4>Fase 2 - Escalabilidad</h4>
+            <p>Aumentar precios progresivamente, mejorar calidad de producción, establecer fechas fijas anuales.</p>
+          </div>
+          
+          <div class="strategy-item">
+            <h4>Fase 3 - Monetización Multiplataforma</h4>
+            <p>YouTube Premium, patrocinios, licencias a plataformas de streaming, venta de documentales.</p>
+          </div>
+          
+          <div class="strategy-item">
+            <h4>Fase 4 - Expansión Regional</h4>
+            <p>Atraer tour operadores regionales que adopten nuestra marca para expandirnos sin inversión en infraestructura.</p>
+          </div>
+        </div>
+        
+        <p><strong>Ventaja Única:</strong> El documental se convierte en marketing orgánico poderoso que 
+        genera deseo en futuros clientes. Margen objetivo: 70% en fase madura.</p>
+      </div>
+    </section>
+
+    <!-- CRONOGRAMA DOCUMENTALES -->
+    <section>
+      <div class="section-label">Planificación Estratégica</div>
+      <h2 class="section-title">Cronograma de Expediciones Documentales 2026</h2>
+      <p class="section-intro">
+        Plan de producción mensual con 2 expediciones: una en Cusco (rotando entre tres circuitos emblemáticos)
+        y una adicional en otros destinos estratégicos del Perú con alto potencial documental.
+      </p>
+
+      <div class="card">
+        <h3>Calendario Mensual de Expediciones</h3>
+        <p>
+          Inicio operacional: 15 de enero 2026. Cada mes incluye 2 expediciones documentales 
+          con grupos de 12-20 participantes.
+        </p>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Mes</th>
+                <th>Expedición 1 - Cusco</th>
+                <th>Expedición 2 - Regional</th>
+                <th>Fechas</th>
+                <th>Duración</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="month-header">
+                <td colspan="5">ENERO 2026</td>
+              </tr>
+              <tr>
+                <td>Enero</td>
+                <td>Cusco Clásico: Ciudad + Machu Picchu + Valle Sagrado 
+                  <span class="destination-type cusco-classic">Cusco Clásico</span>
+                </td>
+                <td>Lago Titicaca (Puno) - Culturas Vivas y Islas Flotantes
+                  <span class="destination-type regional">Regional</span>
+                </td>
+                <td>15-25 Enero</td>
+                <td>10 días</td>
+              </tr>
+              
+              <tr class="month-header">
+                <td colspan="5">FEBRERO 2026</td>
+              </tr>
+              <tr>
+                <td>Febrero</td>
+                <td>Cusco Inka Jungle: Biking, Rafting, Trekking + Machu Picchu
+                  <span class="destination-type cusco-jungle">Inka Jungle</span>
+                </td>
+                <td>Cañón del Colca (Arequipa) - Cultura Collagua y Cóndores
+                  <span class="destination-type regional">Regional</span>
+                </td>
+                <td>10-20 Febrero</td>
+                <td>10 días</td>
+              </tr>
+              
+              <tr class="month-header">
+                <td colspan="5">MARZO 2026</td>
+              </tr>
+              <tr>
+                <td>Marzo</td>
+                <td>Camino Inca Clásico 4D/3N + Machu Picchu
+                  <span class="destination-type cusco-inca">Camino Inca</span>
+                </td>
+                <td>Amazonía Peruana (Iquitos) - Biodiversidad y Comunidades
+                  <span class="destination-type regional">Regional</span>
+                </td>
+                <td>12-22 Marzo</td>
+                <td>10 días</td>
+              </tr>
+              
+              <tr class="month-header">
+                <td colspan="5">ABRIL 2026</td>
+              </tr>
+              <tr>
+                <td>Abril</td>
+                <td>Cusco Clásico + Maras Moray y Salineras
+                  <span class="destination-type cusco-classic">Cusco Clásico</span>
+                </td>
+                <td>Nazca - Líneas y Cultura Preinca
+                  <span class="destination-type regional">Regional</span>
+                </td>
+                <td>8-18 Abril</td>
+                <td>10 días</td>
+              </tr>
+              
+              <tr class="month-header">
+                <td colspan="5">MAYO 2026</td>
+              </tr>
+              <tr>
+                <td>Mayo</td>
+                <td>Cusco Inka Jungle + Hot Springs
+                  <span class="destination-type cusco-jungle">Inka Jungle</span>
+                </td>
+                <td>Kuelap - Fortaleza Chachapoyas
+                  <span class="destination-type regional">Regional</span>
+                </td>
+                <td>10-20 Mayo</td>
+                <td>10 días</td>
+              </tr>
+              
+              <tr class="month-header">
+                <td colspan="5">JUNIO 2026</td>
+              </tr>
+              <tr>
+                <td>Junio</td>
+                <td>Camino Inca Corto 2D/1N + Machu Picchu
+                  <span class="destination-type cusco-inca">Camino Inca</span>
+                </td>
+                <td>Señor de Sipán (Chiclayo) - Cultura Moche
+                  <span class="destination-type regional">Regional</span>
+                </td>
+                <td>14-24 Junio</td>
+                <td>10 días</td>
+              </tr>
+              
+              <tr class="month-header">
+                <td colspan="5">JULIO 2026</td>
+              </tr>
+              <tr>
+                <td>Julio</td>
+                <td>Cusco Clásico + Festival Inti Raymi (especial)
+                  <span class="destination-type cusco-classic">Cusco Clásico</span>
+                </td>
+                <td>Huaraz - Cordillera Blanca y Pastoruri
+                  <span class="destination-type regional">Regional</span>
+                </td>
+                <td>18-28 Julio</td>
+                <td>10 días</td>
+              </tr>
+              
+              <tr class="month-header">
+                <td colspan="5">AGOSTO 2026</td>
+              </tr>
+              <tr>
+                <td>Agosto</td>
+                <td>Cusco Inka Jungle + Canopy
+                  <span class="destination-type cusco-jungle">Inka Jungle</span>
+                </td>
+                <td>Manu - Reserva de Biósfera
+                  <span class="destination-type regional">Regional</span>
+                </td>
+                <td>12-22 Agosto</td>
+                <td>10 días</td>
+              </tr>
+              
+              <tr class="month-header">
+                <td colspan="5">SEPTIEMBRE 2026</td>
+              </tr>
+              <tr>
+                <td>Septiembre</td>
+                <td>Camino Inca Largo 5D/4N
+                  <span class="destination-type cusco-inca">Camino Inca</span>
+                </td>
+                <td>Paracas - Reserva Nacional y Ballenas
+                  <span class="destination-type regional">Regional</span>
+                </td>
+                <td>9-19 Septiembre</td>
+                <td>10 días</td>
+              </tr>
+              
+              <tr class="month-header">
+                <td colspan="5">OCTUBRE 2026</td>
+              </tr>
+              <tr>
+                <td>Octubre</td>
+                <td>Cusco Clásico + Montaña 7 Colores
+                  <span class="destination-type cusco-classic">Cusco Clásico</span>
+                </td>
+                <td>Gocta - Catarata y Chachapoyas
+                  <span class="destination-type regional">Regional</span>
+                </td>
+                <td>14-24 Octubre</td>
+                <td>10 días</td>
+              </tr>
+              
+              <tr class="month-header">
+                <td colspan="5">NOVIEMBRE 2026</td>
+              </tr>
+              <tr>
+                <td>Noviembre</td>
+                <td>Cusco Inka Jungle + Aguas Termales
+                  <span class="destination-type cusco-jungle">Inka Jungle</span>
+                </td>
+                <td>Trujillo - Chan Chan y Huacas
+                  <span class="destination-type regional">Regional</span>
+                </td>
+                <td>11-21 Noviembre</td>
+                <td>10 días</td>
+              </tr>
+              
+              <tr class="month-header">
+                <td colspan="5">DICIEMBRE 2026</td>
+              </tr>
+              <tr>
+                <td>Diciembre</td>
+                <td>Camino Inca + Huayna Picchu
+                  <span class="destination-type cusco-inca">Camino Inca</span>
+                </td>
+                <td>Tambopata - Amazonía Sur
+                  <span class="destination-type regional">Regional</span>
+                </td>
+                <td>9-19 Diciembre</td>
+                <td>10 días</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+          <p><strong>Resumen anual:</strong> 24 expediciones documentales (12 en Cusco, 12 regionales)</p>
+          <p><strong>Participantes estimados:</strong> 288-480 turistas protagonistas</p>
+          <p><strong>Contenido generado:</strong> 24 documentales profesionales + contenido adicional para redes</p>
+          <p><strong>Rotación Cusco:</strong> 4 meses Cusco Clásico, 4 meses Inka Jungle, 4 meses Camino Inca</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Perú Nature – Estructura de servicios y cronograma operativo 2026.
+    <br>Información estratégica – Modelo multi-canal optimizado.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
