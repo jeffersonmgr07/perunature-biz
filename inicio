@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perú Nature – Inversión en Turismo Sostenible</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green-dark: #29451f;
+      --green-mid:  #3f6b27;
+      --green-light:#88b23a;
+      --bg-cream:   #f5f5ec;
+      --text-main:  #fdfdfd;
+      --text-dark:  #222;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(41, 69, 31, 0.97);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--text-main);
+    }
+
+    .nav-logo img {
+      height: 38px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+      color: #f3f3f3;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.25rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--green-light);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--green-dark), #1c3017 55%, var(--green-mid));
+      color: var(--text-main);
+      padding: 4.5rem 1.25rem 4rem;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-logo {
+      max-width: 260px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      max-width: 32rem;
+      opacity: 0.95;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tagline {
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--green-light);
+      color: #143013;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    }
+
+    .btn-primary:hover {
+      background: #9fce45;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.28);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.7);
+      color: var(--text-main);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: rgba(0,0,0,0.15);
+      transform: translateY(-1px);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.25);
+      font-size: 0.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-badge span {
+      font-weight: 600;
+      color: var(--green-light);
+    }
+
+    .hero-side-card {
+      background: rgba(0,0,0,0.18);
+      border-radius: 18px;
+      padding: 1.5rem 1.6rem;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .hero-side-title {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.6rem;
+      color: #e9ffe2;
+    }
+
+    .hero-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .kpi {
+      background: rgba(0,0,0,0.2);
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+    }
+
+    .kpi-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.15rem;
+    }
+
+    .kpi-value {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .kpi-note {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.8);
+      margin-top: 0.25rem;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.25rem 4rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+      color: var(--green-mid);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+      color: #163014;
+    }
+
+    .section-intro {
+      max-width: 36rem;
+      font-size: 0.98rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .pill {
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(63,107,39,0.08);
+      color: #29451f;
+      font-size: 0.8rem;
+      border: 1px solid rgba(63,107,39,0.25);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.4rem 1.5rem;
+      box-shadow: 0 22px 35px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      color: #1e3a19;
+    }
+
+    .card p {
+      font-size: 0.94rem;
+      margin-bottom: 0.3rem;
+      flex-grow: 1;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      padding-left: 1.1rem;
+      font-size: 0.95rem;
+    }
+
+    ul li {
+      margin-bottom: 0.25rem;
+    }
+
+    .highlight {
+      color: var(--green-mid);
+      font-weight: 600;
+    }
+
+    .contact {
+      background: linear-gradient(135deg, var(--green-mid), var(--green-dark));
+      color: var(--text-main);
+      border-radius: 20px;
+      padding: 1.9rem 1.7rem;
+      display: grid;
+      grid-template-columns: minmax(0,2.2fr) minmax(0,1.5fr);
+      gap: 1.5rem;
+      align-items: center;
+      margin-top: 2.75rem;
+    }
+
+    .contact h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact p {
+      font-size: 0.95rem;
+      max-width: 30rem;
+      opacity: 0.95;
+    }
+
+    .contact-details {
+      font-size: 0.9rem;
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    .contact-details span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      padding: 1.5rem 1rem 2rem;
+      color: rgba(0,0,0,0.55);
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: minmax(0,1fr);
+      }
+
+      .hero {
+        padding-top: 4rem;
+      }
+
+      .hero-logo {
+        margin-inline: auto;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .grid-2, .contact {
+        grid-template-columns: minmax(0,1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-side-card {
+        margin-top: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="img/Logoperunature1.png" alt="Perú Nature Logo" />
+        <span style="font-weight:600; font-size:0.95rem;">Perú Nature</span>
+      </div>
+      <nav class="nav-links">
+        <a href="inicio.html">Inicio</a>
+        <a href="#plan-financiero">Plan financiero</a>
+        <a href="EstructuraServicios.html">Estructura de servicios</a>
+        <a href="Cronogramas.html">Cronogramas</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <img class="hero-logo" src="img/Logoperunature1.png" alt="Perú Nature Logo Blanco" />
+
+        <div class="hero-badge">
+          <span>Proyección 2026</span> Oportunidad de inversión en turismo sostenible
+        </div>
+
+        <p class="hero-tagline">Turismo auténtico con impacto positivo</p>
+
+        <h1>Inversión Inteligente con Retorno Garantizado</h1>
+
+        <p class="hero-subtitle">
+          Modelo financiero sólido para operaciones turísticas en Perú, 
+          con enfoque en sostenibilidad, experiencias auténticas y rentabilidad escalable.
+          Capital requerido: $7,500. Retorno esperado: 25-30% año 1, 80-100% en 3 años
+          con mecanismos de protección de capital.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="Finanzas v3.html" target="_blank" class="btn btn-primary">
+            Ver proyección financiera completa →
+          </a>
+          <a href="#contacto" class="btn btn-outline">
+            Conversar sobre la inversión
+          </a>
+        </div>
+      </div>
+
+      <aside class="hero-side-card">
+        <div class="hero-side-title">Resumen para inversionista</div>
+        <p style="font-size:0.9rem; opacity:0.95;">
+          Agencia híbrida de turismo natural y cultural con producto estrella: 
+          tours–documentales. Modelo multi-canal diversificado con enfoque en 
+          sostenibilidad y escalabilidad internacional.
+        </p>
+
+        <div class="hero-kpi-grid">
+          <div class="kpi">
+            <div class="kpi-label">ROI Año 1</div>
+            <div class="kpi-value">25-30%</div>
+            <div class="kpi-note">Retorno sobre inversión primer año</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">ROI 3 Años</div>
+            <div class="kpi-value">80-120%</div>
+            <div class="kpi-note">Retorno total acumulado</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Inversión Base</div>
+            <div class="kpi-value">$7,500</div>
+            <div class="kpi-note">20% participación estratégica</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Break-even</div>
+            <div class="kpi-value">Mes 4</div>
+            <div class="kpi-note">Punto de equilibrio operativo</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <main>
+    <section id="que-es">
+      <div class="section-label">Concepción Estratégica</div>
+      <h2 class="section-title">Qué es Perú Nature</h2>
+      <p class="section-intro">
+        Perú Nature es una agencia de turismo sostenible que combina experiencias 
+        auténticas con producción audiovisual profesional, creando un modelo 
+        único en el mercado peruano con potencial de expansión regional.
+      </p>
+
+      <div class="pill-row">
+        <span class="pill">Turismo responsable</span>
+        <span class="pill">Impacto socioambiental positivo</span>
+        <span class="pill">Modelo lean y escalable</span>
+        <span class="pill">Expansión multi-destino</span>
+        <span class="pill">Contenido como activo estratégico</span>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <img src="img/imagen1.jpg" alt="Turismo natural consciente" class="card-img">
+          <h3>Turismo natural y consciente</h3>
+          <p>
+            Ofrecemos rutas diseñadas para conectar al viajero con la esencia 
+            natural y cultural del Perú, priorizando la conservación ambiental 
+            y el desarrollo comunitario.
+          </p>
+          <p>
+            Cada experiencia combina aventura, educación cultural y compromiso 
+            social, generando alto valor percibido y diferenciación en el mercado.
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="img/imagen2.jpg" alt="Presencia híbrida" class="card-img">
+          <h3>Presencia híbrida estratégica</h3>
+          <p>
+            Fuerte presencia digital (Facebook 30k seguidores, TikTok, Instagram, 
+            YouTube) combinada con espacios físicos estratégicos en ubicaciones clave.
+          </p>
+          <p>
+            Oficinas operativas en Miraflores (Lima) y Plaza de Armas (Cusco) con 
+            costos optimizados menores a USD 100 mensuales por ubicación, 
+            maximizando alcance con mínima estructura fija.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="producto">
+      <div class="section-label">Innovación en Experiencias</div>
+      <h2 class="section-title">Producto Estrella: Tours-Documentales</h2>
+      <p class="section-intro">
+        Grupos de 10-20 viajeros participan en rutas de naturaleza y aventura 
+        mientras un equipo profesional produce documentales educativos de 20-30 
+        minutos que se convierten en poderosas herramientas de marketing orgánico.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <img src="img/imagen3.jpg" alt="Turista protagonista" class="card-img">
+          <h3>Turista como protagonista</h3>
+          <p>
+            Los viajeros no son solo espectadores, sino protagonistas activos 
+            del guion documental, creando un vínculo emocional profundo con la marca.
+          </p>
+          <p>
+            Cada documental se convierte en contenido viral que atrae nuevos 
+            grupos interesados en vivir la experiencia de "salir en pantalla" 
+            mientras exploran destinos únicos.
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="img/imagen4.jpg" alt="Rutas de alto impacto" class="card-img">
+          <h3>Rutas de alto impacto visual</h3>
+          <p>
+            Circuitos premium como Machu Picchu, Choquequirao, Inka Jungle, 
+            Puno–Uyuni y otros destinos icónicos del turismo peruano.
+          </p>
+          <p>
+            Meta de producción: mínimo un documental mensual, escalable a 2-3 
+            según demanda estacional, generando flujo constante de contenido 
+            de alto valor para redes sociales.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="modelo">
+      <div class="section-label">Arquitectura Comercial</div>
+      <h2 class="section-title">Modelo de Negocio Multi-Canal</h2>
+      <p class="section-intro">
+        Estrategia comercial diversificada en cuatro pilares complementarios 
+        con diferentes márgenes y escalabilidad, optimizada para la estacionalidad 
+        turística peruana y expansión regional.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <img src="img/imagen5.jpg" alt="Fuentes de ingreso" class="card-img">
+          <h3>Streams de Ingreso Diversificados</h3>
+          <ul>
+            <li><strong>Tours Directos Premium:</strong> Margen 65% - 40% del total</li>
+            <li><strong>Agencias Asociadas B2B:</strong> Margen 45% - 20% del total</li>
+            <li><strong>Plataformas OTA Internacionales:</strong> Margen 50% - 30% del total</li>
+            <li><strong>Experiencias Documentales:</strong> Margen 70% - 10% del total</li>
+          </ul>
+          <p>
+            <strong>Margen bruto promedio ponderado:</strong> 57.5% - 
+            <strong>Mix estratégico que minimiza riesgo y maximiza captación.</strong>
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="img/imagen6.jpg" alt="Expansión inteligente" class="card-img">
+          <h3>Expansión Inteligente sin CAPEX</h3>
+          <p>
+            Red de operadores locales en Puno, Arequipa, Tarapoto, Iquitos, 
+            Huaraz y otros destinos adoptan la marca Perú Nature a cambio de 
+            flujo constante de clientes.
+          </p>
+          <p>
+            <strong>Modelo win-win:</strong> Ellos ganan atendiendo turistas; 
+            nosotros ganamos comisiones y presencia nacional sin aumentar 
+            estructura fija ni costos de alquiler adicionales.
+          </p>
+          <p>
+            Escalabilidad regional con inversión mínima en infraestructura.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="contact">
+        <div>
+          <h2>Oportunidad de Inversión Estratégica</h2>
+          <p>
+            Presentamos tres niveles de inversión con diferentes porcentajes 
+            de participación en utilidades, diseñados para adaptarse a diferentes 
+            perfiles de inversionista y objetivos de retorno. 
+            El <strong>Plan Estratégico de $7,500</strong> ofrece el mejor balance 
+            entre inversión, retorno y control.
+          </p>
+          <p style="margin-top: 0.5rem;">
+            Estoy listo para implementar el modelo Perú Nature y construir juntos 
+            la agencia de turismo sostenible más innovadora del país, con visión 
+            de expansión a Latinoamérica.
+          </p>
+        </div>
+        <div class="contact-details">
+          <span>📧 <strong>Correo:</strong> jefferson.mgr07@gmail.com</span>
+          <span>📱 <strong>WhatsApp:</strong> +51 918 650 530</span>
+          <span>💼 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jeffgarciaromero/" style="color:#e9ffe2; text-decoration:underline;">Jeff Garcia Romero</a></span>
+          <span>📍 <strong>Base Operativa:</strong> Perú – Lima & Cusco</span>
+          <span>🌐 <strong>Expansión:</strong> Próximamente Arequipa, Puno, Huaraz</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Perú Nature – Modelo de turismo sostenible con proyección financiera 2026.
+    <br>Información confidencial – Para uso exclusivo de potenciales inversionistas.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
