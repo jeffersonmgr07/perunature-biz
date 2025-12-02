@@ -1,744 +1,297 @@
-unature1<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perú Nature – Plan de inversión</title>
-
-  <!-- Fuente limpia y moderna -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --green-dark: #29451f;   /* fondo principal */
-      --green-mid:  #3f6b27;   /* barras / secciones */
-      --green-light:#88b23a;   /* acentos / botones */
-      --bg-cream:   #f5f5ec;   /* fondo suave */
-      --text-main:  #fdfdfd;
-      --text-dark:  #222;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--bg-cream);
-      color: var(--text-dark);
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* -------- NAV -------- */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(41, 69, 31, 0.97);
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .nav-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0.75rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      color: var(--text-main);
-    }
-
-    .nav-logo img {
-      height: 38px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.25rem;
-      font-size: 0.9rem;
-      color: #f3f3f3;
-    }
-
-    .nav-links a {
-      position: relative;
-      padding-bottom: 0.25rem;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: var(--green-light);
-      transition: width 0.25s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    /* -------- HERO -------- */
-
-    .hero {
-      background: linear-gradient(135deg, var(--green-dark), #1c3017 55%, var(--green-mid));
-      color: var(--text-main);
-      padding: 4.5rem 1.25rem 4rem;
-    }
-
-    .hero-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    .hero-logo {
-      max-width: 260px;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero h1 {
-      font-size: 2.3rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1.05rem;
-      max-width: 32rem;
-      opacity: 0.95;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-tagline {
-      font-size: 0.95rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--green-light);
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 0.5rem;
-    }
-
-    .btn {
-      border-radius: 999px;
-      padding: 0.7rem 1.4rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: var(--green-light);
-      color: #143013;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-    }
-
-    .btn-primary:hover {
-      background: #9fce45;
-      transform: translateY(-1px);
-      box-shadow: 0 14px 26px rgba(0,0,0,0.28);
-    }
-
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,0.7);
-      color: var(--text-main);
-      background: transparent;
-    }
-
-    .btn-outline:hover {
-      background: rgba(0,0,0,0.15);
-      transform: translateY(-1px);
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.25);
-      font-size: 0.8rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-badge span {
-      font-weight: 600;
-      color: var(--green-light);
-    }
-
-    .hero-side-card {
-      background: rgba(0,0,0,0.18);
-      border-radius: 18px;
-      padding: 1.5rem 1.6rem;
-      border: 1px solid rgba(255,255,255,0.18);
-    }
-
-    .hero-side-title {
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.6rem;
-      color: #e9ffe2;
-    }
-
-    .hero-kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .kpi {
-      background: rgba(0,0,0,0.2);
-      border-radius: 14px;
-      padding: 0.9rem 1rem;
-    }
-
-    .kpi-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 0.15rem;
-    }
-
-    .kpi-value {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #ffffff;
-    }
-
-    .kpi-note {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.8);
-      margin-top: 0.25rem;
-    }
-
-    /* -------- SECCIONES -------- */
-
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 3rem 1.25rem 4rem;
-    }
-
-    section {
-      margin-bottom: 3rem;
-    }
-
-    .section-label {
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.75rem;
-      color: var(--green-mid);
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    .section-title {
-      font-size: 1.6rem;
-      margin-bottom: 0.75rem;
-      color: #163014;
-    }
-
-    .section-intro {
-      max-width: 36rem;
-      font-size: 0.98rem;
-      margin-bottom: 1.6rem;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .pill {
-      padding: 0.25rem 0.75rem;
-      border-radius: 999px;
-      background: rgba(63,107,39,0.08);
-      color: #29451f;
-      font-size: 0.8rem;
-      border: 1px solid rgba(63,107,39,0.25);
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 1.8rem;
-    }
-
-    .card {
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 1.4rem 1.5rem;
-      box-shadow: 0 22px 35px rgba(0,0,0,0.06);
-      border: 1px solid rgba(0,0,0,0.03);
-    }
-
-    .card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.4rem;
-      color: #1e3a19;
-    }
-
-    .card p {
-      font-size: 0.94rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .card-icon {
-      font-size: 1.4rem;
-      margin-bottom: 0.4rem;
-    }
-
-    ul {
-      padding-left: 1.1rem;
-      font-size: 0.95rem;
-    }
-
-    ul li {
-      margin-bottom: 0.25rem;
-    }
-
-    /* TABLA SIMPLE */
-
-    .table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 0.75rem;
-      font-size: 0.92rem;
-    }
-
-    .table th, .table td {
-      padding: 0.55rem 0.65rem;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-    }
-
-    .table th {
-      text-align: left;
-      background: rgba(63,107,39,0.07);
-      color: #1f361a;
-      font-weight: 600;
-    }
-
-    .table tfoot td {
-      font-weight: 700;
-      border-top: 1px solid rgba(0,0,0,0.1);
-    }
-
-    .highlight {
-      color: var(--green-mid);
-      font-weight: 600;
-    }
-
-    /* -------- CONTACTO -------- */
-
-    .contact {
-      background: linear-gradient(135deg, var(--green-mid), var(--green-dark));
-      color: var(--text-main);
-      border-radius: 20px;
-      padding: 1.9rem 1.7rem;
-      display: grid;
-      grid-template-columns: minmax(0,2.2fr) minmax(0,1.5fr);
-      gap: 1.5rem;
-      align-items: center;
-      margin-top: 2.75rem;
-    }
-
-    .contact h2 {
-      font-size: 1.4rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .contact p {
-      font-size: 0.95rem;
-      max-width: 30rem;
-      opacity: 0.95;
-    }
-
-    .contact-details {
-      font-size: 0.9rem;
-      display: grid;
-      gap: 0.3rem;
-    }
-
-    .contact-details span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.8rem;
-      padding: 1.5rem 1rem 2rem;
-      color: rgba(0,0,0,0.55);
-    }
-
-    /* -------- RESPONSIVO -------- */
-
-    @media (max-width: 900px) {
-      .hero-inner {
-        grid-template-columns: minmax(0,1fr);
-      }
-
-      .hero {
-        padding-top: 4rem;
-      }
-
-      .hero-logo {
-        margin-inline: auto;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .grid-2, .contact {
-        grid-template-columns: minmax(0,1fr);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .hero-side-card {
-        margin-top: 0.5rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perú Nature - Bienvenida</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #1c3017, #29451f, #3f6b27, #5a8c39, #88b23a);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 800px;
+            width: 90%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .welcome-text {
+            font-size: 5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 40px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            letter-spacing: 1px;
+        }
+
+        /* Animación de brillo en el texto */
+        .welcome-text::before {
+            content: '¡Bienvenid@!';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.4) 50%, 
+                transparent 100%);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shine 3s infinite;
+            mix-blend-mode: overlay;
+        }
+
+        @keyframes shine {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .logo-container {
+            margin: 40px 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .logo {
+            width: 280px;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-15px) rotate(0.5deg);
+            }
+            50% {
+                transform: translateY(0) rotate(0deg);
+            }
+            75% {
+                transform: translateY(-10px) rotate(-0.5deg);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #88b23a, #5a8c39);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(136, 178, 58, 0.4),
+                        0 0 0 3px rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(136, 178, 58, 0.6),
+                        0 0 0 3px rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-button:active {
+            transform: translateY(-2px);
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.2), 
+                transparent);
+            transition: left 0.7s ease;
+        }
+
+        .cta-button:hover::after {
+            left: 100%;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.1rem;
+            margin-top: 20px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        /* Partículas decorativas */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .welcome-text {
+                font-size: 3.5rem;
+            }
+            
+            .logo {
+                width: 220px;
+            }
+            
+            .cta-button {
+                padding: 16px 35px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .welcome-text {
+                font-size: 2.5rem;
+            }
+            
+            .logo {
+                width: 180px;
+            }
+            
+            .cta-button {
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <!-- NAVBAR -->
-  <header>
-    <div class="nav-container">
-      <div class="nav-logo">
-        <!-- Ajusta el src al nombre real de tu archivo -->
-        <img src="img/Logoperunature1.png" alt="Perú Nature Logo" />
-        <span style="font-weight:600; font-size:0.95rem;">Perú Nature</span>
-      </div>
-      <nav class="nav-links">
-        <a href="#que-es">Qué es</a>
-        <a href="#producto">Producto</a>
-        <a href="#modelo">Modelo</a>
-        <a href="#finanzas">Finanzas</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+    <div class="container">
+        <h1 class="welcome-text">¡Bienvenid@!</h1>
+        
+        <div class="logo-container">
+            <img src="img/Logoperunature2.png" alt="Perú Nature Logo" class="logo">
+        </div>
+        
+        <a href="index Peru nature v1.html" class="cta-button">
+            Ver Oportunidad de negocio
+        </a>
+        
+        <p class="subtitle">Turismo sostenible con impacto positivo y rentabilidad garantizada</p>
     </div>
-  </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div>
-        <img class="hero-logo" src="img/Logoperunature1.png" alt="Perú Nature Logo Blanco" />
-
-        <div class="hero-badge">
-          <span>Oportunidad</span> de inversión en turismo natural y audiovisual
-        </div>
-
-        <p class="hero-tagline">Recorre Perú en su estado más puro</p>
-
-        <h1>Plan de negocio e inversión para <br />Perú Nature</h1>
-
-        <p class="hero-subtitle">
-          Te presento una oportunidad de inversión en un negocio escalable,
-          de bajo riesgo operativo, con una estrategia de marketing orgánico
-          muy poderosa y un potencial de crecimiento internacional.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="#finanzas" class="btn btn-primary">
-            Ver proyección financiera →
-          </a>
-          <a href="#contacto" class="btn btn-outline">
-            Conversar sobre la inversión
-          </a>
-        </div>
-      </div>
-
-      <aside class="hero-side-card">
-        <div class="hero-side-title">Resumen para inversionista</div>
-        <p style="font-size:0.9rem; opacity:0.95;">
-          Agencia híbrida de turismo natural, cultural y responsable
-          con producto estrella: tours–documentales.
-        </p>
-
-        <div class="hero-kpi-grid">
-          <div class="kpi">
-            <div class="kpi-label">Meta de utilidad</div>
-            <div class="kpi-value">USD 3,000+</div>
-            <div class="kpi-note">Utilidad mensual objetivo desde mes 7–12.</div>
-          </div>
-          <div class="kpi">
-            <div class="kpi-label">Inversión estimada</div>
-            <div class="kpi-value">USD 9–10.5K</div>
-            <div class="kpi-note">Cobertura de 6 meses + marca + contenido.</div>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <!-- CONTENIDO PRINCIPAL -->
-  <main>
-
-    <!-- QUÉ ES -->
-    <section id="que-es">
-      <div class="section-label">Sección 1</div>
-      <h2 class="section-title">Qué es Perú Nature</h2>
-      <p class="section-intro">
-        Perú Nature es una agencia de viajes especializada en turismo natural,
-        cultural y responsable, que combina experiencias auténticas con
-        contenido audiovisual profesional.
-      </p>
-
-      <div class="pill-row">
-        <span class="pill">Turismo responsable</span>
-        <span class="pill">Naturaleza + cultura</span>
-        <span class="pill">Enfoque socioambiental</span>
-        <span class="pill">Marca escalable</span>
-      </div>
-
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-icon">🌱</div>
-          <h3>Turismo natural y consciente</h3>
-          <p>
-            Cada ruta busca conectar al viajero con la naturaleza y la
-            realidad socioeconómica de cada región.
-          </p>
-          <p>
-            Combinamos aventura, cultura y educación para crear experiencias
-            con sentido y alto valor percibido.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">📍</div>
-          <h3>Presencia híbrida</h3>
-          <p>
-            Fuerte presencia digital (Facebook 30k seguidores, TikTok, Instagram,
-            YouTube) y oficinas físicas simbólicas.
-          </p>
-          <p>
-            Espacios compartidos en Miraflores y Plaza de Armas de Cusco,
-            a menos de USD 100 al mes por ubicación.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRODUCTO -->
-    <section id="producto">
-      <div class="section-label">Sección 2</div>
-      <h2 class="section-title">Producto estrella: tours–documentales</h2>
-      <p class="section-intro">
-        Grupos de 10–20 viajeros viven rutas de naturaleza y aventura mientras
-        un equipo de filmación produce un documental educativo, cultural y social
-        de 20–30 minutos para difusión en redes y plataformas.
-      </p>
-
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-icon">🎥</div>
-          <h3>Turista como protagonista</h3>
-          <p>
-            Los viajeros forman parte del guion y del rodaje, lo que crea
-            un fuerte vínculo emocional con la marca.
-          </p>
-          <p>
-            Cada documental se convierte en una pieza de marketing orgánico
-            que atrae a nuevos grupos interesados en “salir en pantalla”.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">🗺️</div>
-          <h3>Rutas de alto impacto</h3>
-          <p>
-            Machu Picchu, Choquequirao, Inka Jungle, Puno–Uyuni y otros
-            destinos emblema del turismo peruano.
-          </p>
-          <p>
-            La meta es producir al menos un documental al mes, con posibilidad
-            de escalar a dos o tres según la demanda.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- MODELO -->
-    <section id="modelo">
-      <div class="section-label">Sección 3</div>
-      <h2 class="section-title">Modelo de negocio y expansión</h2>
-      <p class="section-intro">
-        El modelo combina ingresos por comisiones, paquetes propios y expansión
-        nacional mediante aliados locales que adoptan la marca Perú Nature en
-        sus oficinas sin generar alquiler adicional.
-      </p>
-
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-icon">💼</div>
-          <h3>Fuentes de ingreso</h3>
-          <ul>
-            <li>Comisiones (10–20%) por tours, hoteles y transportes.</li>
-            <li>Paquetes propios con margen del 20–30%.</li>
-            <li>Tours–documentales a precio intermedio escalable.</li>
-            <li>Turistas fuera de fechas programadas derivados a aliados.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">🌍</div>
-          <h3>Expansión inteligente</h3>
-          <p>
-            Operadores de Puno, Arequipa, Tarapoto, Iquitos, Huaraz y otros
-            destinos adoptan la marca a cambio de grupos constantes.
-          </p>
-          <p>
-            Ellos ganan atendiendo a los turistas; nosotros ganamos comisiones
-            y presencia nacional sin aumentar estructura fija.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FINANZAS -->
-    <section id="finanzas">
-      <div class="section-label">Sección 4</div>
-      <h2 class="section-title">Proyección financiera (primer año)</h2>
-      <p class="section-intro">
-        El objetivo es alcanzar una utilidad mínima de USD 3,000 mensuales
-        entre los meses 7 y 12, con una estructura de costos ligera y
-        altamente controlada.
-      </p>
-
-      <div class="card">
-        <h3>Costos mensuales estimados</h3>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Concepto</th>
-              <th>Monto mensual (USD)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Oficina Miraflores (espacio compartido)</td>
-              <td>100</td>
-            </tr>
-            <tr>
-              <td>Oficina Cusco (espacio compartido)</td>
-              <td>100</td>
-            </tr>
-            <tr>
-              <td>Productor audiovisual freelance (1 doc/mes)</td>
-              <td>300</td>
-            </tr>
-            <tr>
-              <td>Marketing digital (ads + diseño)</td>
-              <td>300</td>
-            </tr>
-            <tr>
-              <td>Web, hosting y herramientas (CRM, etc.)</td>
-              <td>40</td>
-            </tr>
-            <tr>
-              <td>Contabilidad y administración</td>
-              <td>60</td>
-            </tr>
-            <tr>
-              <td>Movilidad y contingencias</td>
-              <td>100</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td>Total mensual aproximado</td>
-              <td class="highlight">1,000</td>
-            </tr>
-          </tfoot>
-        </table>
-
-        <p style="margin-top:0.9rem; font-size:0.9rem;">
-          Con una inversión de <span class="highlight">USD 9,000–10,500</span> se cubren
-          6 meses de operación, branding, desarrollo web y los primeros
-          documentales, reduciendo drásticamente el riesgo de la etapa inicial.
-        </p>
-      </div>
-    </section>
-
-    <!-- CONTACTO -->
-    <section id="contacto">
-      <div class="contact">
-        <div>
-          <h2>Hablemos de la inversión</h2>
-          <p>
-            Estoy listo para poner en marcha Perú Nature y construir juntos
-            la agencia de turismo natural más atractiva del país, con visión
-            de expansión a Latinoamérica y al mundo.
-          </p>
-        </div>
-        <div class="contact-details">
-          <span>📧 <strong>Correo:</strong> jefferson.mgr07@gmail.com</span>
-          <span>📱 <strong>WhatsApp:</strong> +51&nbsp;[tu número aquí]</span>
-          <span>📍 <strong>Base:</strong> Perú – Lima &amp; Cusco</span>
-          <span>🌐 <strong>Redes:</strong> Facebook, TikTok, Instagram, YouTube</span>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    © <span id="year"></span> Perú Nature. Todos los derechos reservados.
-  </footer>
-
-  <script>
-    // Año automático en el footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    <script>
+        // Crear partículas decorativas
+        function createParticles() {
+            const colors = [
+                'rgba(136, 178, 58, 0.2)',
+                'rgba(90, 140, 57, 0.15)',
+                'rgba(255, 255, 255, 0.1)',
+                'rgba(63, 107, 39, 0.25)'
+            ];
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Tamaño aleatorio
+                const size = Math.random() * 60 + 20;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Posición aleatoria
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                
+                // Color aleatorio
+                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Opacidad aleatoria
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                
+                // Añadir al body
+                document.body.appendChild(particle);
+                
+                // Animación de movimiento
+                animateParticle(particle);
+            }
+        }
+        
+        function animateParticle(particle) {
+            let x = parseFloat(particle.style.left);
+            let y = parseFloat(particle.style.top);
+            let xSpeed = (Math.random() - 0.5) * 0.5;
+            let ySpeed = (Math.random() - 0.5) * 0.5;
+            
+            function move() {
+                x += xSpeed;
+                y += ySpeed;
+                
+                // Rebotar en los bordes
+                if (x <= 0 || x >= 100) xSpeed *= -1;
+                if (y <= 0 || y >= 100) ySpeed *= -1;
+                
+                // Mantener dentro de los límites
+                x = Math.max(0, Math.min(100, x));
+                y = Math.max(0, Math.min(100, y));
+                
+                particle.style.left = `${x}vw`;
+                particle.style.top = `${y}vh`;
+                
+                requestAnimationFrame(move);
+            }
+            
+            move();
+        }
+        
+        // Inicializar partículas cuando la página cargue
+        document.addEventListener('DOMContentLoaded', createParticles);
+    </script>
 </body>
 </html>
